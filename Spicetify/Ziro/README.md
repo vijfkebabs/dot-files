@@ -1,4 +1,4 @@
-#Spicetify dotfiles
+# Spicetify dotfiles
 
 This is my shot at making a spicetify theme, It's based on the Ziro theme in the spicetify marketplace.
 

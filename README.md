@@ -1,2 +1,2 @@
 # dot-files
-dot files for all my stuff
+dot files from my setup

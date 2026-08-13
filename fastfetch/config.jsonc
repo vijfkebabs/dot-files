@@ -1,0 +1,164 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "file",
+    "source": "C:/Users/lowie/.config/fastfetch/ascii.txt",
+    "color": {
+      "1": "#F5E0DC",
+      "2": "#F2CDCD",
+      "3": "#F5C2E7",
+      "4": "#FAB387",
+      "5": "#F9E2AF",
+      "6": "#A6E3A1",
+      "7": "#94E2D5",
+      "8": "#89DCEB",
+      "9": "#74C7EC"
+    },
+    "padding": {
+      "top": 1,
+      "right": 3
+    }
+  },
+  "display": {
+    "separator": " "
+  },
+    "modules": [
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌────────────────────────── HARDWARE ────────────────────────┐"
+        },
+        {
+            "type": "host",
+            "key": "{icon} PC",
+            "keyColor": "green"
+        },
+        {
+            "type": "cpu",
+            "key": "│ ├{icon} CPU",
+            "showPeCoreCount": true,
+            "keyColor": "green"
+        },
+        {
+            "type": "gpu",
+            "key": "│ ├{icon} GPU",
+            "detectionMethod": "vulkan",
+            "keyColor": "green",
+            "hideType": "integrated",
+            "format": "{name} [{dedicated-total} VRAM]"
+        },
+        {
+            "type": "memory",
+            "key": "│ ├{icon} MEMORY",
+            "keyColor": "green"
+        },
+        {
+            "type": "disk",
+            "key": "│ ├{icon} DISK",
+            "keyColor": "green",
+            "format": "{size-used}/{size-total} ({size-percentage}) [{size-free} free]"
+        },
+        {
+            "type": "swap",
+            "key": "│ ├{icon} SWAP",
+            "keyColor": "green"
+            ,
+            "format": "{used}/{total} ({percentage})"
+        },
+        {
+            "type": "display",
+            "key": "│ ├{icon} DISPLAY",
+            "keyColor": "green",
+            "format": "{inch}\" {width}x{height} {refresh-rate}Hz [{type}]"
+        },
+        {
+            "type": "battery",
+            "key": "│ ├{icon} BATTERY",
+            "keyColor": "green"
+        },
+        {
+            "type": "chassis",
+            "key": "└ └{icon} CHASSIS{#keys}",
+            "keyColor": "green"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m└────────────────────────────────────────────────────────────┘"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌────────────────────── SYSTEM/OS ────────────────────────┐"
+        },
+        {
+            "type": "os",
+            "key": "{icon} OS",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "title",
+            "key": "│ ├{icon} HOST",
+            "format": "{host-name}",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "kernel",
+            "key": "│ ├{icon} KERNEL",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "bios",
+            "key": "│ ├ BIOS VERSION",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "packages",
+            "key": "│ ├{icon} PACKAGES",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "terminal",
+            "key": "│ ├{icon} TERMINAL",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "terminalfont",
+            "key": "│ ├{icon} TERMINAL FONT",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "shell",
+            "key": "└ └{icon} SHELL",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m└─────────────────────────────────────────────────────────┘"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌─────────────────────── UPTIME ───────────────────────┐"
+        },
+        {
+            "type": "uptime",
+            "key": "│ ├{icon} UPTIME",
+            "keyColor": "magenta"
+        },
+        {
+            "condition": {                                    // Conditional module: only show on non-macOS
+                "!system": "macOS"
+            },
+            "type": "disk",
+            "key": "│ ├{icon} OS AGE",
+            "keyColor": "magenta",
+            "folders": "/",                                   // Check root filesystem
+            "format": "{create-time:10} [{days} days]"        // Show creation time and age in days
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m└──────────────────────────────────────────────────────┘"
+        },
+        {
+            "type": "colors",
+            "symbol": "circle"
+        }
+    ]
+}

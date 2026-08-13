@@ -1,2 +1,2 @@
-# config-files
-config files for all my stuff
+# dot-files
+dot files for all my stuff

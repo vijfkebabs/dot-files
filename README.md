@@ -37,6 +37,17 @@ Copy or symlink the config to:
 - **Linux/macOS:** `~/.config/kitty/kitty.conf`
 - **Windows (WSL):** same as Linux, inside your WSL distro
 
+### Hyprland
+
+Copy or symlink the contents of `hypr` to:
+
+- `~/.config/hypr/`
+  Then reload the config from within Hyprland with:
+
+```bash
+hyprctl reload
+```
+
 ### fastfetch
 
 Copy or symlink the config to:

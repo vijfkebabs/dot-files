@@ -54,7 +54,7 @@ spicetify apply
 
 ### Vencord
 
-Copy the contents of `vencord` into your Vencord settings directory (typically `%APPDATA%\Vencord\settings` on Windows).
+Copy the contents of `vencord` into the Vencord quickcss discord settings.
 
 ### Windhawk
 

@@ -8,10 +8,12 @@ Personal dotfiles and configuration files for my setup.
 | --- | --- |
 | [`WezTerm`](./WezTerm) | Config for [WezTerm](https://wezterm.org/), a GPU-accelerated terminal emulator (fonts, colors, keybindings, pane/tab management) |
 | [`kitty`](./kitty) | Config for [kitty](https://sw.kovidgoyal.net/kitty/), another GPU-accelerated terminal emulator |
+| [`hyprland`](./hypr) | Mod settings for [Hyprland](https://hypr.land/), a Tiling WindowManager |
 | [`fastfetch`](./fastfetch) | Config for [fastfetch](https://github.com/fastfetch-cli/fastfetch), a system information tool |
-| [`Spicetify/Ziro`](./Spicetify/Ziro) | [Spicetify](https://spicetify.app/) theme/config ("Ziro") for customizing the Spotify client |
+| [`Spicetify`](./Spicetify/Ziro) | [Spicetify](https://spicetify.app/) theme/config ("Ziro") for customizing the Spotify client |
 | [`vencord`](./vencord) | Config for [Vencord](https://vencord.dev/), a Discord client mod |
 | [`windhawk`](./windhawk) | Mod settings for [Windhawk](https://windhawk.net/), a Windows customization tool |
+| [`yasb`](./yasb) | Config for [YASB](https://github.com/amnweb/yasb), a highly configurable Windows status bar |
 
 ## Usage
 
@@ -71,7 +73,31 @@ Copy the contents of `vencord` into the Vencord quickcss discord settings.
 
 Import the mod settings from `windhawk` via the Windhawk app's import feature.
 
+### Yasb
+
+The `yasb` folder contains the YASB configuration, stylesheet, theme, and wallpapers.
+
+Copy or symlink the contents of `yasb` to your YASB configuration directory:
+
+if you dont have YASB yet install it with:
+
+```powershell
+winget install --id AmN.yasb
+```
+the folder usually lives in:
+
+- **Windows:** `%USERPROFILE%\\.config\\yasb\\`
+- Alternatively, use the YASB configuration directory shown by your installed version.
+
+The folder contains:
+
+- `config.yaml` — YASB bar and widget config
+- `styles.css` — YASB styling
+- `theme.json` — theme config
+- `Wallpapers/` — wallpapers used by the wallpaper widget (any wallpaper you add in this folder will be shown by the widget)
+
+
 ## Notes
 
 - These configs are tailored to my own setup and preferences — feel free to fork and adapt them.
-- No warranty, no guarantees it won't break your rice. Use at your own risk.
+- no guarantees it won't break your rice. Use at your own risk.

@@ -1,0 +1,573 @@
+/*VARIABLES AND SOME DEFAULT SETTINGS*/
+:root {
+    --rosewater: #f0c6c4;
+    --flamingo: #ea9a97;
+    --pink: #ea9a97;
+    --mauve: #c4a7e7;
+    --red: #ea9a97;
+    --maroon: #ea9a97;
+    --peach: #ea9a97;
+    --peachedit: #f0c6c4;
+    --peachedit2: #ea9a97;
+    --yellow: #ea9a97;
+    --green: #c4a7e7;
+    --teal: #c4a7e7;
+    --sky: #c4a7e7;
+    --sapphire: #c4a7e7;
+    --blue: #c4a7e7;
+    --lavender: #e0def4;
+    --text: #e0def4;
+    --subtext1: #908caa;
+    --subtext0: #6e6a86;
+    --overlay2: #908caa;
+    --overlay1: #6e6a86;
+    --overlay0: #56526e;
+    --surface2: rgba(196, 167, 231, 0.16);
+    --surface1: rgba(196, 167, 231, 0.10);
+    --base: #1f1d2e;
+    --winbutton: #e0def4;
+    --icon: #ea9a97;
+    --basetransparent: rgba(196, 167, 231, 0.12);
+    --mantle: rgba(196, 167, 231, 0.10);
+    --crust: rgba(196, 167, 231, 0.14);
+}
+*{
+    font-size: 12px;
+    color: var(--text);
+    font-weight: 600;
+    font-family: 'JetBrainsMono NFP';
+    margin: 0;
+    padding: 0;
+}
+/*GENERAL CONFIGRATIONS*/
+.yasb-bar {
+	padding: 0;
+	margin: 0;
+    background-color: var(--base);
+}
+.widget {
+    padding: 0 4px;
+    margin: 0 4px;
+    border-radius: 12px;
+    border: 1px solid rgba(128, 128, 128, 0);
+}
+.widget .icon {
+    font-size: 18px;
+}
+.widget .label {
+    color: var(--text);
+}
+/*WIDGET*/
+.home-widget {
+    padding-bottom: 1px;
+}
+.home-widget .icon {
+    color:#ea9a97;
+}
+/*HOME WIDGET DROPDOWN*/
+.home-menu {
+    background-color: #1f1d2e;
+    padding: 0;
+    margin-left: 0px;
+}
+.home-menu .menu-item {
+    padding: 6px 48px 7px 16px;
+    font-size: 12px;
+    font-family: 'JetBrainsMono NFP';
+    font-weight: 600;
+}
+.home-menu .menu-item:hover {
+    background-color:#1f1d2e;
+    color: #ea9a97;
+}
+.home-menu .separator {
+    max-height: 1px;
+    background-color:rgba(128, 130, 158, 0.3);
+}
+/*KOMOREBI WORKSPACES WIDGET*/
+.komorebi-workspaces {
+    margin-left: -6px;
+    margin-right: -6px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-radius: 10px;
+}
+.komorebi-workspaces .offline-status {
+    color: var(--surface2);
+    font-size: 12px;
+    padding: 0 4px;
+    font-weight: 600;
+}
+.komorebi-workspaces .ws-btn {
+    border: none;
+    background-color: var(--overlay2);
+    margin: 0px 4px;
+    padding: 0;
+    color: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    height: 10px;
+    width: 10px;
+}
+.komorebi-workspaces .ws-btn.populated {
+    background-color: var(--pink);
+}
+.komorebi-workspaces .ws-btn.active {
+    color: rgba(149, 177, 255, 0);
+    background-color: #ea9a97;
+    width: 36px;
+    height: 10px;
+    border-radius: 4px;
+}
+/*WEATHER WIDGET*/
+.weather-widget {
+    padding: 0;
+    padding-left: -5
+}
+.weather-widget .icon {
+    color: var(--flamingo);
+    padding: 6px;
+}
+.weather-widget .label {
+    font-size: 14px;
+    font-family: 'JetBrainsMono NFP';
+    font-weight: 600;
+}
+/*ACTIVE WINDOW WIDGET*/
+.active-window-widget .label {
+    font-size: 14px;
+    font-family: 'JetBrainsMono NFP';
+    font-weight: 600;
+}
+.active-window-widget .icon {
+    padding-right: 6px;
+    border: none;
+}
+/*CLOCK - CALENDAR WIDGET*/
+.clock-widget .label {
+    font-size: 14px;
+    font-family: 'JetBrainsMono NFP';
+    font-weight: 600;
+}
+/*CLOCK - CALENDAR WIDGET DROPDOWN*/
+.calendar {
+    background-color: #1f1d2e;
+}
+.calendar .calendar-table,
+.calendar .calendar-table::item {
+    background-color: #1f1d2e;
+    color: #e0def4;
+    font-family: 'JetBrainsMono NFP';
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;  
+}
+.calendar .calendar-table::item:selected {
+    color: #ea9a97;
+}
+.calendar .day-label {
+    margin-top: 20px;
+}
+.calendar .day-label,
+.calendar .month-label,
+.calendar .date-label {
+    font-family: 'JetBrainsMono NFP';
+    font-size: 16px;
+    color: #e0def4;
+    font-weight: 700;
+    min-width: 180px;
+    max-width: 180px;
+}
+.calendar .month-label {
+    font-weight: normal;
+}
+.calendar .date-label {
+    font-size: 88px;
+    font-weight: 900;
+    color: #e0def4;
+    margin-top: -20px;
+}
+/*DISK WIDGET*/
+.disk-widget {
+    padding: 0;
+}
+.disk-widget .icon {
+    color: #ea9a97;
+}
+/*DISK DROPDOWN*/
+.disk-group {
+    background-color: #1f1d2e;    
+}
+.disk-group-row {
+    min-width: 220px;
+    max-width: 220px;
+    max-height: 44px;
+    margin: 0;
+    padding: 0;
+    border-radius: 6px;
+    border: 1px solid #1f1d2e;
+}
+.disk-group-row:hover {
+    background-color:#1f1d2e;
+    border: 1px solid #1f1d2e;
+}
+.disk-group-label-bar{
+    max-height: 8px;
+    border:0px solid #1f1d2e;
+    background-color:#1f1d2e;
+    border-radius: 4px;
+}
+.disk-group-label-bar::chunk{
+    background-color: #ea9a97;
+    border-radius: 4px;
+}
+.disk-group-label {
+    font-size: 12px;
+}
+.disk-group-label-size {
+    font-size: 12px;
+    color: rgba(224, 222, 244, 0.5);
+}
+/*AUDIO WIDGET*/
+.volume-widget {
+    margin-left: 0;
+    padding: 0;
+}
+.volume-widget .icon {
+    padding: 0 6px;
+    color: #ea9a97;
+}
+.volume-widget .label {
+    font-size: 14px;
+    font-family: 'JetBrainsMono NFP';
+    font-weight: 600;
+}
+/*AUDIO DROPDOWN*/
+.audio-menu {
+    background-color: var(--mantle);
+}
+.audio-container .device {
+    font-family: 'JetBrainsMono NFP';
+    background-color: transparent;
+    border: none;
+    padding:6px 8px 6px 4px;
+    margin: 2px 0;
+    font-size: 14px;
+    border-radius: 4px;
+}
+.audio-container .device.selected {
+    background-color: rgba(255, 255, 255, 0.085);
+}
+.audio-container .device:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+/*MEDIA WIDGET*/
+.media-widget {
+	padding-right: 5px;;
+}
+.media-widget .label {
+    font-family: 'JetBrainsMono NFP';
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 0px;
+}
+.media-widget .btn {
+    color: #ea9a97;
+}
+.media-widget .icon{
+    padding: 0 6px;
+}
+/*WALLPAPERS WIDGET*/
+.wallpapers-widget {
+    
+    padding: 0;
+}
+.wallpapers-widget .icon {
+    color: #ea9a97;
+}
+/*WALLPAPERS GALLERY*/
+.wallpapers-gallery-window {
+    background-color: #1f1d2e;
+    border: 0;
+    margin: 0;
+}
+.wallpapers-gallery-buttons {
+    font-size: 12px;
+    font-family: 'JetBrainsMono NFP';
+     background-color: var(--surface2);
+    color: white;
+    border: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-radius: 8px;
+    margin:0 8px 8px 8px;
+    width: 600px;
+}
+.wallpapers-gallery-buttons:hover {
+     background-color: rgba(196, 167, 231, 0.25);
+}
+.wallpapers-gallery-image {
+    border: 4px solid transparent;
+    border-radius: 10px;
+}
+.wallpapers-gallery-image:hover {
+    border: 4px solid rgb(66, 55, 78);
+}
+.wallpapers-gallery-image.focused {
+    border: 4px solid #ea9a97;
+}
+/*POWER WIDGET*/
+.power-menu-widget {
+    padding-left: 0;
+}
+.power-menu-widget .label {
+	color: var(--flamingo);
+    font-size: 16px;
+}
+/*POWER MENU POPUP*/
+.uptime {
+	font-size: 14px;
+	margin-bottom: 10px;
+	color: rgba(224, 222, 244, 0.726);
+	font-weight: 600;
+	font-family: "JetBrainsMono NFP";
+}
+.power-menu-popup .button {
+	padding: 0;
+	width: 160px;
+	height: 240px;
+	border-radius: 4px;
+	background-color: rgba(42, 40, 62, 0.75);
+	font-family: "JetBrainsMono NFP";
+	color: white;
+	border: 4px solid rgba(255, 255, 255, 0);
+ 
+}
+.power-menu-popup .button.hover {
+	background-color: rgb(66, 55, 78);
+	border: 4px solid rgb(66, 55, 78);
+}
+.power-menu-popup .button .label {
+	margin-bottom: 8px;
+	font-size: 16px;
+	font-weight: 600;
+	color: rgba(255, 255, 255, 0.6);
+	font-family: "JetBrainsMono NFP";
+}
+.power-menu-popup .button .icon {
+	font-size: 64px;
+	padding-top: 54px;
+	color: rgba(255, 255, 255, 0.25);
+}
+.power-menu-popup .button.cancel .icon {
+ 	color: rgba(234, 154, 151, 0.55);
+}
+.power-menu-popup .button.cancel .label {
+ 	color: rgba(234, 154, 151, 0.95);
+}
+.cava-widget {
+    padding: 0;
+    margin-right: 0;
+}
+/*GITHUB WIDGET*/
+.github-widget {
+    padding: 0;
+}
+.github-widget .icon {
+    font-size: 16px;
+}
+/*GITHUB DROPDOWN*/
+.github-menu    {
+    background-color:  rgba(25, 23, 36, 0.2);
+    max-height: 500px;
+    min-height: 500px;
+    min-width: 420px;
+}
+.github-menu .header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'JetBrainsMono NFP';
+    padding: 8px;
+    color: white;
+    background-color: rgba(25, 23, 36, 0.75);
+}
+.github-menu .footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 12px;
+    padding: 4px 8px 6px 8px;
+    font-family: 'JetBrainsMono NFP';
+    color: #908caa;
+    background-color: rgba(25, 23, 36, 0.75);
+}
+.github-menu .contents {
+    background-color:  rgba(25, 23, 36, 0.2);
+}
+.github-menu .contents .item {
+    min-height: 40px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+}
+.github-menu .contents .item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+.github-menu .contents .item .title,
+.github-menu .contents .item .description {
+    color: #908caa;
+    font-family: 'JetBrainsMono NFP';
+}
+.github-menu .contents .item .title {
+    font-size: 14px;
+    font-weight: 600; 
+}
+.github-menu .contents .item .description {
+    font-size: 12px;
+    font-weight: 500
+}
+.github-menu .contents .item.new .title,
+.github-menu .contents .item.new .description {
+    color: #ffffff
+}
+.github-menu .contents .item .icon {
+    font-size: 16px;
+    padding-right: 0;
+    padding-left: 8px;
+    padding-right: 4px;
+    color: #908caa;
+}
+.github-menu .contents .item.new .icon {
+    color: #c4a7e7;
+}
+/*CPU WIDGET*/
+.cpu-widget .widget-container .icon {
+    color: #ea9a97;
+    padding-right: 5px;
+}
+.cpu-widget .widget-container .label {
+    color: #e0def4;
+}
+.cpu-widget .widget-container .label.status-low,
+.cpu-widget .widget-container .icon.status-low {
+    color: #e0def4;
+}
+.cpu-widget .widget-container .label.status-medium,
+.cpu-widget .widget-container .icon.status-medium {
+    color: #c4a7e7;
+}
+.cpu-widget .widget-container .label.status-high,
+.cpu-widget .widget-container .icon.status-high,
+.cpu-widget .widget-container .label.status-critical,
+.cpu-widget .widget-container .icon.status-critical {
+    color: #ea9a97;
+}
+.cpu-popup {
+    background-color: rgba(31, 29, 46, 0.85);
+    min-width: 400px;
+}
+.cpu-popup .header .text {
+    color: #e0def4;
+}
+.cpu-popup .cpu-graph {
+    color: #ea9a97;
+}
+.cpu-popup .cpu-graph-grid {
+    color: rgba(196, 167, 231, 0.15);
+}
+.cpu-popup .stats .stat-item {
+    background-color: rgba(196, 167, 231, 0.08);
+    border: 1px solid rgba(196, 167, 231, 0.12);
+}
+.cpu-popup .stats .stat-value {
+    color: #ea9a97;
+}
+/*GPU WIDGET*/
+.gpu-widget .widget-container .icon {
+    color: #ea9a97;
+    padding-right: 5px
+}
+.gpu-widget .widget-container .label {
+    color: #e0def4;
+}
+.gpu-widget .label.status-low {
+    color: #e0def4;
+}
+.gpu-widget .label.status-medium {
+    color: #c4a7e7;
+}
+.gpu-widget .label.status-high,
+.gpu-widget .label.status-critical {
+    color: #ea9a97;
+}
+.gpu-popup {
+    background-color: rgba(31, 29, 46, 0.85);
+    min-width: 400px;
+}
+.gpu-popup .header .text {
+    color: #e0def4;
+}
+.gpu-popup .gpu-graph {
+    color: #c4a7e7;
+}
+.gpu-popup .gpu-graph-grid {
+    color: rgba(196, 167, 231, 0.15);
+}
+.gpu-popup .gpu-temp-graph {
+    color: #ea9a97;
+}
+.gpu-popup .gpu-temp-graph-grid {
+    color: rgba(196, 167, 231, 0.15);
+}
+.gpu-popup .stats .stat-item {
+    background-color: rgba(196, 167, 231, 0.08);
+    border: 1px solid rgba(196, 167, 231, 0.12);
+}
+.gpu-popup .stats .stat-value {
+    color: #c4a7e7;
+}
+/*MEMORY WIDGET*/
+.memory-widget .widget-container .icon {
+    color: #ea9a97;
+    padding-right: 5px;
+}
+.memory-widget .widget-container .label {
+    color: #e0def4;
+}
+.memory-widget .widget-container .label.status-low,
+.memory-widget .widget-container .label.status-medium {
+    color: #e0def4;
+}
+.memory-widget .widget-container .label.status-high{
+    color: #c4a7e7
+}
+.memory-widget .widget-container .label.status-critical {
+    color: #eb6f92;
+}
+/*LIBRE HARDWARE MONITOR WIDGET (CPU TEMP)*/
+.libre-monitor-widget .widget-container .icon {
+    color: #ea9a97;
+    padding-right: 5px;
+}
+.libre-monitor-widget .widget-container .label {
+    color: #e0def4;
+}
+.libre-menu {
+    background-color: rgba(31, 29, 46, 0.9);
+}
+.libre-menu .header {
+    color: #e0def4;
+}
+.libre-menu .sensor-item {
+    background-color: rgba(196, 167, 231, 0.05);
+    border: 1px solid rgba(196, 167, 231, 0.1);
+}
+.libre-menu .sensor-item:hover {
+    background-color: rgba(196, 167, 231, 0.12);
+}
+.libre-menu .sensor-name {
+    color: #908caa;
+}
+.libre-menu .sensor-value {
+    color: #ea9a97;
+}

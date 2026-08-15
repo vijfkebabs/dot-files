@@ -86,8 +86,7 @@ winget install --id AmN.yasb
 ```
 the folder usually lives in:
 
-- **Windows:** `%USERPROFILE%\\.config\\yasb\\`
-- Alternatively, use the YASB configuration directory shown by your installed version.
+- `%USERPROFILE%\\.config\\yasb\\`
 
 The folder contains:
 

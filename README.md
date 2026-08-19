@@ -6,9 +6,9 @@ Personal dotfiles and configuration files for my setup.
 
 | Folder | What it configures |
 | --- | --- |
-| [`WezTerm`](./WezTerm) | Config for [WezTerm](https://wezterm.org/), a GPU-accelerated terminal emulator (fonts, colors, keybindings, pane/tab management) |
-| [`kitty`](./kitty) | Config for [kitty](https://sw.kovidgoyal.net/kitty/), another GPU-accelerated terminal emulator |
-| [`hyprland`](./hypr) | Mod settings for [Hyprland](https://hypr.land/), a Tiling WindowManager |
+| [`WezTerm`](./WezTerm) | Config for [WezTerm](https://wezterm.org/), a GPU-accelerated terminal emulator (fonts, colors, keybindings, pane/tab management) for all operating systems |
+| [`kitty`](./kitty) | Config for [kitty](https://sw.kovidgoyal.net/kitty/), a GPU-accelerated terminal emulator for linux |
+| [`hyprland`](./hypr) | Config for [Hyprland](https://hypr.land/), a Tiling WindowManager |
 | [`fastfetch`](./fastfetch) | Config for [fastfetch](https://github.com/fastfetch-cli/fastfetch), a system information tool |
 | [`Spicetify`](./Spicetify/Ziro) | [Spicetify](https://spicetify.app/) theme/config ("Ziro") for customizing the Spotify client |
 | [`vencord`](./vencord) | Config for [Vencord](https://vencord.dev/), a Discord client mod |
@@ -58,7 +58,7 @@ Copy or symlink the config to:
 
 ### Spicetify
 
-Follow the [Spicetify install instructions](https://spicetify.app/docs/getting-started), then apply the `Ziro` theme from the `Spicetify/Ziro` folder by placing it in your Spicetify `Themes` directory and running:
+Follow the [Spicetify install instructions](https://spicetify.app/docs/getting-started), then apply the `Ziro` theme from the `Spicetify/Ziro` folder by placing it in your Spicetify `Themes` directory, replacing the contents with my configs and running:
 
 ```bash
 spicetify config current_theme Ziro
@@ -71,7 +71,7 @@ Copy the contents of `vencord` into the Vencord quickcss discord settings.
 
 ### Windhawk
 
-Import the mod settings from `windhawk` via the Windhawk app's import feature.
+copy the contents from `windhawk` into their respectful mods advanced tab.
 
 ### Yasb
 
@@ -88,15 +88,16 @@ the folder usually lives in:
 
 - `%USERPROFILE%\\.config\\yasb\\`
 
-The folder contains:
+my config contains:
 
 - `config.yaml` — YASB bar and widget config
 - `styles.css` — YASB styling
 - `theme.json` — theme config
-- `Wallpapers/` — wallpapers used by the wallpaper widget (any wallpaper you add in this folder will be shown by the widget)
-
+- `Wallpapers/` — wallpapers used by the wallpaper widget (any wallpaper you add in this folder will be shown by the widget, you might have to change the path the widget looks in config.yaml)
 
 ## Notes
 
 - These configs are tailored to my own setup and preferences — feel free to fork and adapt them.
-- no guarantees it won't break your rice. Use at your own risk.
+- there is no guarantee these will work and can possibly break your rice.
+- Use these dotfiles at your own risk.
+

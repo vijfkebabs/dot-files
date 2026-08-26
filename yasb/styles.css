@@ -1,4 +1,5 @@
 /*VARIABLES AND SOME DEFAULT SETTINGS*/
+
 :root {
     --rosewater: #f0c6c4;
     --flamingo: #ea9a97;
@@ -39,7 +40,9 @@
     margin: 0;
     padding: 0;
 }
+
 /*GENERAL CONFIGRATIONS*/
+
 .yasb-bar {
 	padding: 0;
 	margin: 0;
@@ -57,14 +60,18 @@
 .widget .label {
     color: var(--text);
 }
-/*WIDGET*/
+
+/* HOME WIDGET*/
+
 .home-widget {
     padding-bottom: 1px;
 }
 .home-widget .icon {
     color:#ea9a97;
 }
+
 /*HOME WIDGET DROPDOWN*/
+
 .home-menu {
     background-color: #1f1d2e;
     padding: 0;
@@ -84,7 +91,9 @@
     max-height: 1px;
     background-color:rgba(128, 130, 158, 0.3);
 }
+
 /*KOMOREBI WORKSPACES WIDGET*/
+
 .komorebi-workspaces {
     margin-left: -6px;
     margin-right: -6px;
@@ -118,7 +127,9 @@
     height: 10px;
     border-radius: 4px;
 }
+
 /*WEATHER WIDGET*/
+
 .weather-widget {
     padding: 0;
     padding-left: -5
@@ -132,7 +143,9 @@
     font-family: 'JetBrainsMono NFP';
     font-weight: 600;
 }
+
 /*ACTIVE WINDOW WIDGET*/
+
 .active-window-widget .label {
     font-size: 14px;
     font-family: 'JetBrainsMono NFP';
@@ -142,13 +155,17 @@
     padding-right: 6px;
     border: none;
 }
+
 /*CLOCK - CALENDAR WIDGET*/
+
 .clock-widget .label {
     font-size: 14px;
     font-family: 'JetBrainsMono NFP';
     font-weight: 600;
 }
+
 /*CLOCK - CALENDAR WIDGET DROPDOWN*/
+
 .calendar {
     background-color: #1f1d2e;
 }
@@ -187,14 +204,18 @@
     color: #e0def4;
     margin-top: -20px;
 }
+
 /*DISK WIDGET*/
+
 .disk-widget {
     padding: 0;
 }
 .disk-widget .icon {
     color: #ea9a97;
 }
+
 /*DISK DROPDOWN*/
+
 .disk-group {
     background-color: #1f1d2e;    
 }
@@ -228,7 +249,9 @@
     font-size: 12px;
     color: rgba(224, 222, 244, 0.5);
 }
+
 /*AUDIO WIDGET*/
+
 .volume-widget {
     margin-left: 0;
     padding: 0;
@@ -242,7 +265,9 @@
     font-family: 'JetBrainsMono NFP';
     font-weight: 600;
 }
+
 /*AUDIO DROPDOWN*/
+
 .audio-menu {
     background-color: var(--mantle);
 }
@@ -263,6 +288,7 @@
 }
 
 /*MEDIA WIDGET*/
+
 .media-widget {
 	padding-right: 5px;;
 }
@@ -274,19 +300,23 @@
 }
 .media-widget .btn {
     color: #ea9a97;
+    margin: 0 6px
 }
 .media-widget .icon{
-    padding: 0 6px;
+    padding: 0 8px;
 }
+
 /*WALLPAPERS WIDGET*/
+
 .wallpapers-widget {
-    
     padding: 0;
 }
 .wallpapers-widget .icon {
     color: #ea9a97;
 }
+
 /*WALLPAPERS GALLERY*/
+
 .wallpapers-gallery-window {
     background-color: #1f1d2e;
     border: 0;
@@ -295,7 +325,7 @@
 .wallpapers-gallery-buttons {
     font-size: 12px;
     font-family: 'JetBrainsMono NFP';
-     background-color: var(--surface2);
+    background-color: var(--surface2);
     color: white;
     border: none;
     font-size: 14px;
@@ -317,7 +347,9 @@
 .wallpapers-gallery-image.focused {
     border: 4px solid #ea9a97;
 }
+
 /*POWER WIDGET*/
+
 .power-menu-widget {
     padding-left: 0;
 }
@@ -325,7 +357,9 @@
 	color: var(--flamingo);
     font-size: 16px;
 }
+
 /*POWER MENU POPUP*/
+
 .uptime {
 	font-size: 14px;
 	margin-bottom: 10px;
@@ -370,22 +404,27 @@
     padding: 0;
     margin-right: 0;
 }
+
 /*GITHUB WIDGET*/
+
 .github-widget {
     padding: 0;
 }
 .github-widget .icon {
     font-size: 16px;
+    color: #ea9a97;
 }
+
 /*GITHUB DROPDOWN*/
+
 .github-menu    {
-    background-color:  rgba(25, 23, 36, 0.2);
+    background-color: #1f1d2e;
     max-height: 500px;
     min-height: 500px;
     min-width: 420px;
 }
 .github-menu .header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #1f1d2e;
     font-size: 15px;
     font-weight: 400;
     font-family: 'JetBrainsMono NFP';
@@ -394,20 +433,20 @@
     background-color: rgba(25, 23, 36, 0.75);
 }
 .github-menu .footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid #1f1d2e;
     font-size: 12px;
     padding: 4px 8px 6px 8px;
     font-family: 'JetBrainsMono NFP';
     color: #908caa;
-    background-color: rgba(25, 23, 36, 0.75);
+    background-color: #1f1d2e;
 }
 .github-menu .contents {
-    background-color:  rgba(25, 23, 36, 0.2);
+    background-color: #1f1d2e;
 }
 .github-menu .contents .item {
     min-height: 40px;
     padding: 6px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+    border-bottom: 1px solid #1f1d2e;
 }
 .github-menu .contents .item:hover {
     background-color: rgba(255, 255, 255, 0.05);
@@ -440,7 +479,9 @@
 .github-menu .contents .item.new .icon {
     color: #c4a7e7;
 }
+
 /*CPU WIDGET*/
+
 .cpu-widget .widget-container .icon {
     color: #ea9a97;
     padding-right: 5px;
@@ -482,7 +523,9 @@
 .cpu-popup .stats .stat-value {
     color: #ea9a97;
 }
+
 /*GPU WIDGET*/
+
 .gpu-widget .widget-container .icon {
     color: #ea9a97;
     padding-right: 5px
@@ -526,7 +569,9 @@
 .gpu-popup .stats .stat-value {
     color: #c4a7e7;
 }
+
 /*MEMORY WIDGET*/
+
 .memory-widget .widget-container .icon {
     color: #ea9a97;
     padding-right: 5px;
@@ -544,7 +589,9 @@
 .memory-widget .widget-container .label.status-critical {
     color: #eb6f92;
 }
+
 /*LIBRE HARDWARE MONITOR WIDGET (CPU TEMP)*/
+
 .libre-monitor-widget .widget-container .icon {
     color: #ea9a97;
     padding-right: 5px;

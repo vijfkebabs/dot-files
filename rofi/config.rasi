@@ -1,0 +1,270 @@
+configuration {
+	modi: "drun,run,filebrowser,window";
+	case-sensitive: false;
+	cycle: true;
+	normalize-match: true;
+	show-icons: true;
+	matching: "normal";
+	tokenize: true;
+
+    kb-cancel: "Escape,MousePrimary";
+
+	kb-page-prev: "ScrollUp";
+	kb-page-next: "ScrollDown";
+	ml-row-down: "";
+	ml-row-up: "";
+
+	/*---------- Drun settings ----------*/
+	drun-match-fields: "name,exec,generic,comment";
+	drun-display-format: "{name} <span size='small'><i>({comment})</i></span>";
+	drun-url-launcher: "xdg-open";
+	drun-show-actions: false;
+	drun-use-desktop-cache: false;
+	drun-reload-desktop-cache: false;
+	drun {
+		parse-user:   true;
+		parse-system: true;
+    }
+
+	/*---------- Run settings ----------*/
+	run-command: "{cmd}";
+	run-shell-command: "{terminal} -e {cmd}";
+
+	/*---------- Fallback Icon ----------*/
+	run, drun {
+		fallback-icon: "application-default-icon";
+	}
+
+	filebrowser {
+		fallback-icon: "application-x-zerosize";
+	}
+
+	/*---------- Window switcher settings ----------*/
+	window-match-fields: "title,class,role,name,desktop";
+	window-command: "wmctrl -i -R {window}";
+	window-format: "{w} - {c} - {t:0}";
+	window-thumbnail: true;
+
+	disable-history: false;
+	sorting-method: "normal";
+
+	/*---------- Misc setting ----------*/
+	terminal: "kitty";
+	sort: false;
+	threads: 0;
+
+	/*---------- File browser settings ----------*/
+    filebrowser {
+      show-hidden: true;
+      directories-first: true;
+      sorting-method:    "mtime";
+    }
+
+	/*---------- Other settings ----------*/
+    timeout {
+      action: "kb-cancel";
+      delay:  0;
+    }
+
+	hover-select: true;
+	me-select-entry: "";
+	me-accept-entry: [ MousePrimary ];
+}
+
+/*---------- Catppuccin Mocha colors ----------*/
+* {
+    base:      #1e1e2eff;
+    mantle:    #181825ff;
+    crust:     #11111bff;
+    text:      #cdd6f4ff;
+    subtext:   #a6adc8ff;
+    overlay:   #6c7086ff;
+    surface0:  #313244ff;
+    surface1:  #45475aff;
+    blue:      #89b4faff;
+    lavender:  #b4befeff;
+    red:       #f38ba8ff;
+    green:     #a6e3a1ff;
+    peach:     #fab387ff;
+
+    background-color: @base;
+    text-color:       @text;
+    font:             "CaskaydiaCove Nerd Font, bold 12";
+}
+
+window {
+    transparency:      "real";
+    background-color:  @base;
+    border:             2px;
+    border-color:       @lavender;
+    border-radius:      15px;
+    width:              450px;
+    padding:            10px;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing:            10px;
+    children:           [ "inputbar", "listview" ];
+}
+
+inputbar {
+    background-color: @surface0;
+    text-color:         @text;
+    border-radius:      16px;
+    padding:            10px 15px;
+    spacing:            10px;
+    children:           [ "prompt", "entry" ];
+}
+
+prompt {
+    background-color: transparent;
+    text-color:         @lavender;
+}
+
+entry {
+    background-color:  transparent;
+    text-color:         @text;
+    placeholder-color:  @overlay;
+    placeholder:        "Search...";
+}
+
+listview {
+    background-color: @surface0;
+    border-radius:      16px;
+    padding:            10px 8px;
+    spacing:            5px;
+    columns:            1;
+    lines:              10;
+    fixed-height:       true;
+    scrollbar:          false;
+}
+
+element {
+    background-color: transparent;
+    text-color:         @text;
+    padding:            6px 10px;
+    border-radius:      12px;
+    spacing:            8px;
+    cursor:             pointer;
+}
+
+
+element normal.normal {
+    background-color: @surface1;
+    text-color:         @lavender;
+}
+
+element selected.normal {
+    background-color: @surface0;
+    text-color:         @text;
+}
+
+element-icon {
+    background-color: transparent;
+    size:               1.2em;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:         inherit;
+    vertical-align:     0.5;
+}
+
+/* ---------- Blue color scheme ---------- */
+
+* {
+    background:      #182536ff;
+    background-alt:  #22344aff;
+    foreground:      #dbeafeff;
+    selected:        #315a7dff;
+    active:          #63b3edff;
+    urgent:          #f87171ff;
+}
+
+/* Main Rofi window */
+window {
+    background-color: #101923ee;
+    border:           2px;
+    border-color:     #63b3edff;
+    border-radius:    18px;
+    padding:          18px;
+}
+
+/* Search bar */
+inputbar {
+    background-color: #1d3045ff;
+    text-color:       #dbeafeff;
+    border-radius:    14px;
+    padding:          10px;
+    spacing:          10px;
+}
+
+prompt {
+    text-color: #93c5fdff;
+}
+
+entry {
+    text-color: #dbeafeff;
+    cursor:     text;
+}
+
+case-indicator,
+num-filtered-rows,
+num-rows {
+    text-color: #93c5fdff;
+}
+
+/* Result list */
+listview {
+    background-color: transparent;
+    spacing:          8px;
+    padding:          12px 0px 0px 0px;
+}
+
+/* Base row */
+element {
+    background-color: #22344aff;
+    text-color:       #dbeafeff;
+    border-radius:    12px;
+    padding:          8px 12px;
+    spacing:          10px;
+}
+
+/* Normal rows */
+element normal.normal {
+    background-color: #22344aff;
+    text-color:       #dbeafeff;
+}
+
+/* Alternate rows: also blue, never white */
+element alternate.normal {
+    background-color: #22344aff;
+    text-color:       #dbeafeff;
+}
+
+/* Mouse-hovered / selected row */
+element selected.normal {
+    background-color: #315a7dff;
+    text-color:       #f0f9ffff;
+}
+
+/* Other possible states */
+element selected.active,
+element selected.urgent,
+element normal.active,
+element normal.urgent,
+element alternate.active,
+element alternate.urgent {
+    background-color: #315a7dff;
+    text-color:       #f0f9ffff;
+}
+
+/* Icons and text */
+element-icon {
+    size: 32px;
+}
+
+element-text {
+    text-color: inherit;
+}

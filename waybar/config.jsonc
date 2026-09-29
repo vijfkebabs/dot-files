@@ -1,0 +1,163 @@
+{
+  "layer": "top",
+  "position": "top",
+  "exclusive": true,
+
+  "modules-left": [
+    "tray"
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "mpris",
+    "pulseaudio",
+    "custom/cpu",
+    "custom/gpu",
+    "memory",
+    "battery",
+    "custom/bluetooth",
+    "custom/wifi",
+    "custom/power"
+  ],
+
+  "reload_style_on_change": true,
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 6,
+    "show-passive-items": true,
+    "tooltip": true
+  },
+
+  "custom/bluetooth": {
+    "format": "󰂯",
+    "tooltip": true,
+    "tooltip-format": "Open Bluetooth settings",
+    "on-click": "systemsettings kcm_bluetooth"
+  },
+
+  "custom/wifi": {
+    "format": "󰖩",
+    "tooltip": true,
+    "tooltip-format": "Open Wi-Fi settings",
+    "on-click": "systemsettings kcm_networkmanagement"
+  },
+
+  "custom/power": {
+    "format": "",
+    "tooltip": true,
+    "tooltip-format": "Power options",
+    "on-click": "qdbus6 org.kde.LogoutPrompt /LogoutPrompt promptAll"
+  },
+
+  "mpris": {
+    "format": "{status_icon} {dynamic}",
+    "format-paused": "{status_icon} {dynamic}",
+    "format-stopped": "",
+    "tooltip-format": "{player} - {artist} - {title}",
+    "dynamic-order": [
+      "title",
+      "artist"
+    ],
+    "dynamic-len": 100,
+    "title-len": 80,
+    "status-icons": {
+      "playing": "⏸",
+      "paused": "▶",
+      "stopped": "■"
+    },
+    "on-click": "playerctl play-pause",
+    "on-click-middle": "playerctl previous",
+    "on-click-right": "playerctl next"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 muted",
+    "tooltip": true,
+    "tooltip-format": "Volume: {volume}%",
+    "format-icons": {
+      "headphone": "󰋋",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 5,
+    "on-click": "pavucontrol"
+  },
+
+  "battery": {
+    "interval": 60,
+    "states": {
+      "warning": 15,
+      "critical": 5
+    },
+    "events": {
+      "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+      "on-discharging-critical": "notify-send -u critical 'Very Low Battery'"
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+    "max-length": 25
+  },
+
+  "memory": {
+    "format": "󰍛 {used:0.1f}G",
+    "tooltip": true,
+    "tooltip-format": "RAM: Used {used:0.1f}G / Total {total:0.1f}G",
+    "interval": 4
+  },
+
+  "custom/cpu": {
+    "exec": "sh -c \"usage=\\$(top -bn1 | awk '/Cpu\\\\(s\\\\)/ {for (i = 1; i <= NF; i++) if (\\$i == \\\"id,\\\") {printf \\\"%d\\\", 100 - \\$(i - 1); exit}}'); temp=\\$(sensors | awk '/Package id 0:/ {sub(/^[+]/, \\\"\\\", \\$4); print \\$4; exit}'); printf '󰻠 %s%% %s' \\\"\\$usage\\\" \\\"\\$temp\\\"\"",
+    "interval": 4,
+    "format": "{}",
+    "tooltip": true,
+    "tooltip-format": "CPU usage and temperature: {}"
+  },
+
+  "custom/gpu": {
+    "exec": "nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,noheader,nounits | awk -F', ' 'NR == 1 {printf \"󰢮 %s%% %s°C\", $1, $2}'",
+    "interval": 4,
+    "format": "{}",
+    "tooltip": true,
+    "tooltip-format": "GPU usage and temperature: {}"
+  },
+
+  "clock": {
+    "format": "{:%a %d %b %R}",
+    "format-alt": "{:%H:%M}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "first-day-of-week": 1,
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    }
+  }
+}

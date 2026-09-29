@@ -1,0 +1,209 @@
+/* Catppuccin Mocha — KDE Wayland Waybar */
+
+@define-color base     #1e1e2e;
+@define-color mantle   #181825;
+@define-color crust    #11111b;
+
+@define-color text     #cdd6f4;
+@define-color subtext0 #a6adc8;
+@define-color subtext1 #bac2de;
+@define-color overlay0 #6c7086;
+
+@define-color surface0 #313244;
+@define-color surface1 #45475a;
+
+@define-color mauve    #cba6f7;
+@define-color lavender #b4befe;
+@define-color blue     #89b4fa;
+@define-color teal     #94e2d5;
+@define-color green    #a6e3a1;
+@define-color yellow   #f9e2af;
+@define-color peach    #fab387;
+@define-color red      #f38ba8;
+
+* {
+    all: unset;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: @base;
+    border-bottom: 1px solid @teal;
+}
+
+tooltip {
+    background-color: @mantle;
+    border: 1px solid @surface0;
+    border-radius: 8px;
+    padding: 6px 10px;
+}
+
+tooltip label {
+    color: @text;
+}
+
+menu {
+    background-color: @mantle;
+    border: 1px solid @surface0;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+menu menuitem {
+    padding: 6px 10px;
+    border-radius: 6px;
+    color: @subtext1;
+}
+
+menu menuitem:hover {
+    background-color: @surface1;
+    color: @text;
+}
+
+/* Shared module styling */
+
+#clock,
+#mpris,
+#custom-bluetooth,
+#custom-wifi,
+#custom-power,
+#pulseaudio,
+#battery,
+#custom-cpu,
+#custom-gpu,
+#memory,
+#disk,
+#tray {
+    color: @text;
+    padding: 4px 12px;
+    margin: 4px 3px;
+    border-radius: 10px;
+}
+
+/* Clock */
+
+#clock {
+    color: @blue;
+    font-weight: bold;
+}
+
+#mpris {
+    color: @peach;
+    min-width: 180px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+#pulseaudio,
+#custom-cpu,
+#custom-gpu,
+#memory,
+#battery,
+#custom-bluetooth,
+#custom-wifi,
+#custom-power {
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+#custom-cpu,
+#custom-gpu {
+    font-size: 14px;
+}
+
+#custom-bluetooth,
+#custom-wifi {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+#custom-bluetooth {
+    color: @blue;
+}
+
+#custom-wifi {
+    color: @teal;
+}
+
+#custom-power {
+    color: @red;
+}
+
+#mpris label {
+    animation: mpris-marquee 12s ease-in-out infinite alternate;
+}
+
+@keyframes mpris-marquee {
+    from {
+        margin-left: 0;
+    }
+    to {
+        margin-left: -120px;
+    }
+}
+
+/* Audio */
+
+#pulseaudio {
+    color: @green;
+}
+
+#pulseaudio.muted {
+    color: @overlay0;
+}
+
+/* Battery */
+
+#battery {
+    color: @green;
+}
+
+#battery.charging {
+    color: @teal;
+}
+
+#battery.warning:not(.charging) {
+    color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+    color: @red;
+}
+
+/* CPU, GPU, memory, and disk */
+
+#custom-cpu {
+    color: @yellow;
+}
+
+#custom-gpu {
+    color: @peach;
+}
+
+#memory {
+    color: @lavender;
+}
+
+#disk {
+    color: @mauve;
+}
+
+/* System tray */
+
+#tray {
+    padding: 2px 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    background-color: @red;
+    border-radius: 8px;
+}

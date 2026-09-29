@@ -11,6 +11,7 @@ Personal dotfiles and configuration files for my setup.
 | [`hyprland`](./hypr) | Config for [Hyprland](https://hypr.land/), a tiling window manager |
 | [`rofi`](./rofi) | Config and theme for [Rofi](https://github.com/davatorium/rofi), an application launcher and window switcher |
 | [`fastfetch`](./fastfetch) | Config for [fastfetch](https://github.com/fastfetch-cli/fastfetch), a system information tool |
+| [`waybar`](./waybar) | Config for [Waybar](https://github.com/Alexays/Waybar), a highly customizable status bar for wlroots-based compositors |
 | [`Spicetify`](./Spicetify/Ziro) | [Spicetify](https://spicetify.app/) theme/config ("Ziro") for customizing the Spotify client |
 | [`vencord`](./vencord) | Config for [Vencord](https://vencord.dev/), a Discord client mod |
 | [`windhawk`](./windhawk) | Mod settings for [Windhawk](https://windhawk.net/), a Windows customization tool |
@@ -116,6 +117,16 @@ Copy or symlink the config to:
 ```text
 ~/.config/fastfetch/config.jsonc
 ```
+
+### Waybar
+
+Copy or symlink the contents of `waybar` to:
+
+```text
+~/.config/waybar/
+```
+
+This includes the main `config.jsonc` and styling in `style.css`, which are used to control the bar layout, modules, colors, and visual theme.
 
 ### Spicetify
 

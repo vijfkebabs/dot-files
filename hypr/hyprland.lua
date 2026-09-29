@@ -1,8 +1,8 @@
 hl.monitor({
-	output = "",
+	output = "eDP-1",
 	mode = "preferred",
 	position = "auto",
-	scale = "auto",
+	scale = 1,
 })
 
 -- hyprctl monitor
@@ -17,7 +17,7 @@ hl.monitor({
 -- })
 --
 -- -- Second monitor to the right of the first
--- hl.monitor({
+-- hl.monitor(
 --     output = "HDMI-A-1",
 --     mode = "preferred",
 --     position = "1920x0",
@@ -36,7 +36,7 @@ hl.monitor({
 -------------------------------------------------
 -- Move workspaces between monitors
 -- Next workspace
--- hl.bind("SUPER", "Tab", "workspace", "e+1")
+-- hl.bind("SUPEwR", "Tab", "workspace", "e+1")
 --
 -- -- Move current workspace to next monitor
 -- hl.bind("SUPER SHIFT", "Tab", "movecurrentworkspacetomonitor", "+1")
@@ -51,19 +51,14 @@ hl.monitor({
 local terminal = "kitty"
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd("swaybg -m fill -i ~/.config/hypr/adwaita-d.jpg")
+	--hl.exec_cmd("swaybg -m fill -i /home/bruinhol/Downloads/galaxy-eyes.1920x1080.mp4")
+	hl.exec_cmd("mpvpaper -o 'no-audio --loop-file=inf' '*' ~/Downloads/galaxy-eyes.1920x1080.mp4")
 	hl.exec_cmd("nm-applet --indicator")
-	hl.exec_cmd("blueman-applet")
-	hl.exec_cmd("hyprpaper & udiskie")
+	hl.exec_cmd("udiskie")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
-	hl.exec_cmd(terminal .. " tmux new-session -A -s main")
+	hl.exec_cmd(terminal)
 	hl.exec_cmd("syncthing")
-	hl.exec_cmd("bongocat -c /home/huseyin/.config/bongocat/bongocat.conf -w")
-	hl.exec_cmd("waybar -c ~/.config/waybar/top.jsonc -s ~/.config/waybar/style.css")
-	hl.exec_cmd("waybar -c ~/.config/waybar/bottom.jsonc -s ~/.config/waybar/style.css")
-	hl.exec_cmd("wl-clip-persist --clipboard regular")
-	hl.exec_cmd("wl-paste --type text --watch cliphist store")
-	hl.exec_cmd("wl-paste --type image --watch cliphist store")
+	hl.exec_cmd("waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css")
 end)
 
 hl.env("XCURSOR_SIZE", "24")
@@ -71,10 +66,10 @@ hl.env("HYPRCURSOR_SIZE", "24")
 
 hl.config({
 	general = {
-		gaps_in = 5,
-		gaps_out = 5,
+		gaps_in = 2,
+		gaps_out = 2,
 
-		border_size = 2,
+		border_size = 1,
 
 		col = { --cdd6f4
 			active_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
@@ -91,12 +86,12 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 10,
+		rounding = 5,
 		rounding_power = 2,
 
 		-- Change transparency of focused and unfocused windows
 		active_opacity = 1.0,
-		inactive_opacity = 1.0,
+		inactive_opacity = 0.8,
 
 		shadow = {
 			enabled = true,
@@ -166,14 +161,20 @@ hl.config({
 
 hl.config({
 	misc = {
-		force_default_wallpaper = -1, -- Set to 0 or 1 to disable the anime mascot wallpapers
 		disable_hyprland_logo = false, -- If true disables the random hyprland logo / anime girl background. :(
+			force_default_wallpaper = -1, -- Set to 0 or 1 to disable the anime mascot wallpapers
+	},
+})
+
+hl.config({
+	xwayland = {
+		force_zero_scaling = true,
 	},
 })
 
 hl.config({
 	input = {
-		kb_layout = "tr",
+		kb_layout = "be",
 		kb_variant = "",
 		kb_model = "",
 		kb_options = "",
@@ -184,13 +185,13 @@ hl.config({
 		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
 		touchpad = {
-			natural_scroll = false,
+			natural_scroll = true,
 		},
 	},
 })
 
 hl.gesture({
-	fingers = 3,
+	fingers = 4,
 	direction = "horizontal",
 	action = "workspace",
 })
@@ -204,16 +205,23 @@ hl.bind(
 hl.bind("ALT + up", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 hl.bind(mainMod .. " + up", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("swaylock"))
+hl.bind(
+	mainMod .. " + L",
+	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
+)
+hl.bind(mainMod .. " + space", hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("helium-browser"))
+hl.bind("Print", hl.dsp.exec_cmd("hyprshot -m region"))
 
-hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd(terminal .. " tmux new-session -A -s main"))
-hl.bind("CTRL + ALT + U", hl.dsp.exec_cmd(terminal .. " tmux new-session -A -s background"))
-hl.bind("CTRL + ALT + Y", hl.dsp.exec_cmd(terminal .. " tmux"))
+hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd(terminal))
+hl.bind("CTRL + ALT + U", hl.dsp.exec_cmd(terminal))
+hl.bind("CTRL + ALT + Y", hl.dsp.exec_cmd(terminal))
 hl.bind("CTRL + ALT + I", hl.dsp.exec_cmd("poweroff"))
 hl.bind("CTRL + ALT + P", hl.dsp.exec_cmd("reboot"))
-hl.bind("CTRL + ALT + O", hl.dsp.exec_cmd("swaylock; systemctl suspend"))
+hl.bind("CTRL + ALT + O", hl.dsp.exec_cmd("rofi -show drun; systemctl suspend"))
 --hl.bind("CTRL + ALT + O", hl.dsp.exec_cmd(""))
-hl.bind("CTRL + ALT + KP_Home", hl.dsp.exec_cmd("firefox"))
+hl.bind("CTRL + ALT + B", hl.dsp.exec_cmd("helium-browser"))
 hl.bind("CTRL + ALT + KP_Begin", hl.dsp.exec_cmd("wofi --show run"))
 hl.bind("CTRL + ALT + right", hl.dsp.exec_cmd("wpctl set-volume -l 2 @DEFAULT_AUDIO_SINK@ 5%+"))
 hl.bind("CTRL + ALT + left", hl.dsp.exec_cmd("wpctl set-volume -l 2 @DEFAULT_AUDIO_SINK@ 5%-"))
@@ -235,11 +243,13 @@ hl.bind("ALT + F4", hl.dsp.window.close())
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.swap({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.swap({ direction = "right" }))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
-	local key = i % 10 -- 10 maps to key 0
+	local key = "code:" .. (9 + i) -- Physical number-row keys 1-0, including Belgian AZERTY
 	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
 	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
@@ -315,6 +325,13 @@ hl.window_rule({
 
 	move = "20 monitor_h-120",
 	float = true,
+})
+
+hl.window_rule({
+	name = "fit-helium-window",
+	match = { class = "^helium$" },
+
+	tile = true,
 })
 
 hl.window_rule({

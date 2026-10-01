@@ -24,7 +24,7 @@
 * {
     all: unset;
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 14px;
+    font-size: 12px;
 }
 
 window#waybar {
@@ -76,9 +76,60 @@ menu menuitem:hover {
 #disk,
 #tray {
     color: @text;
-    padding: 4px 12px;
-    margin: 4px 3px;
+    padding: 2px 10px;
+    margin: 1px 2px;
     border-radius: 10px;
+}
+
+/* Open windows */
+
+#workspaces {
+    margin: 1px 3px;
+}
+
+#workspaces button {
+    min-width: 20px;
+    min-height: 18px;
+    padding: 0 5px;
+    margin: 0 1px;
+    color: @overlay0;
+    border-radius: 6px;
+}
+
+#workspaces button.active {
+    color: @text;
+}
+
+#workspaces button.urgent {
+    color: @red;
+}
+
+#taskbar {
+    margin: 1px 3px;
+}
+
+#taskbar button {
+    min-width: 22px;
+    min-height: 18px;
+    padding: 0 2px;
+    margin: 0;
+    border-radius: 8px;
+}
+
+#taskbar button:hover {
+    background-color: @surface0;
+}
+
+#taskbar button.active {
+    background-color: @surface1;
+}
+
+#taskbar button.minimized {
+    opacity: 0.6;
+}
+
+#taskbar button.urgent {
+    background-color: @red;
 }
 
 /* Clock */
@@ -113,7 +164,7 @@ menu menuitem:hover {
 
 #custom-cpu,
 #custom-gpu {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 #custom-bluetooth,

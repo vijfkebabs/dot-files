@@ -49,13 +49,15 @@ hl.monitor({
 -- hl.raw("workspace = 2, monitor:HDMI-A-1, default:true")
 -------------------------------------------------
 local terminal = "kitty"
+local vscode = "code --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
 hl.on("hyprland.start", function()
 	--hl.exec_cmd("swaybg -m fill -i /home/bruinhol/Downloads/galaxy-eyes.1920x1080.mp4")
-	hl.exec_cmd("mpvpaper -o 'no-audio --loop-file=inf' '*' ~/Downloads/galaxy-eyes.1920x1080.mp4")
+	hl.exec_cmd("mpvpaper -o 'no-audio --loop-file=inf' '*' ~/Downloads/minecraft-northern-light.1920x1080.mp4")
 	hl.exec_cmd("nm-applet --indicator")
 	hl.exec_cmd("udiskie")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
+	hl.exec_cmd("command -v swaync >/dev/null 2>&1 && swaync")
 	hl.exec_cmd(terminal)
 	hl.exec_cmd("syncthing")
 	hl.exec_cmd("waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css")
@@ -174,7 +176,7 @@ hl.config({
 
 hl.config({
 	input = {
-		kb_layout = "be",
+		kb_layout = "be,us",
 		kb_variant = "",
 		kb_model = "",
 		kb_options = "",
@@ -183,11 +185,17 @@ hl.config({
 		follow_mouse = 1,
 
 		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
+		accel_profile = "flat",
 
 		touchpad = {
 			natural_scroll = true,
 		},
 	},
+})
+
+hl.device({
+	name = "ven_0488:00-0488:101e-touchpad",
+	accel_profile = "adaptive",
 })
 
 hl.gesture({
@@ -202,26 +210,24 @@ hl.bind(
 	mainMod .. " + M",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
-hl.bind("ALT + up", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 hl.bind(mainMod .. " + up", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
-
-hl.bind(
-	mainMod .. " + L",
-	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
-)
 hl.bind(mainMod .. " + space", hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("command -v swaync-client >/dev/null 2>&1 && swaync-client -t"))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("helium-browser"))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("discord"))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(vscode))
+hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("hyprctl switchxkblayout current next"))
 hl.bind("Print", hl.dsp.exec_cmd("hyprshot -m region"))
 
 hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd(terminal))
 hl.bind("CTRL + ALT + U", hl.dsp.exec_cmd(terminal))
 hl.bind("CTRL + ALT + Y", hl.dsp.exec_cmd(terminal))
-hl.bind("CTRL + ALT + I", hl.dsp.exec_cmd("poweroff"))
-hl.bind("CTRL + ALT + P", hl.dsp.exec_cmd("reboot"))
+hl.bind(mainMod .. " + ALT + I", hl.dsp.exec_cmd("poweroff"))
+hl.bind(mainMod .. " + ALT + P", hl.dsp.exec_cmd("reboot"))
 hl.bind("CTRL + ALT + O", hl.dsp.exec_cmd("rofi -show drun; systemctl suspend"))
 --hl.bind("CTRL + ALT + O", hl.dsp.exec_cmd(""))
-hl.bind("CTRL + ALT + B", hl.dsp.exec_cmd("helium-browser"))
 hl.bind("CTRL + ALT + KP_Begin", hl.dsp.exec_cmd("wofi --show run"))
 hl.bind("CTRL + ALT + right", hl.dsp.exec_cmd("wpctl set-volume -l 2 @DEFAULT_AUDIO_SINK@ 5%+"))
 hl.bind("CTRL + ALT + left", hl.dsp.exec_cmd("wpctl set-volume -l 2 @DEFAULT_AUDIO_SINK@ 5%-"))

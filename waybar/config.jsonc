@@ -4,7 +4,8 @@
   "exclusive": true,
 
   "modules-left": [
-    "tray"
+    "hyprland/workspaces",
+    "wlr/taskbar"
   ],
 
   "modules-center": [
@@ -26,24 +27,40 @@
   "reload_style_on_change": true,
 
   "tray": {
-    "icon-size": 18,
-    "spacing": 6,
+    "icon-size": 16,
+    "spacing": 4,
     "show-passive-items": true,
     "tooltip": true
+  },
+
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 16,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "on-click-right": "minimize"
+  },
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "all-outputs": false,
+    "sort-by-number": true,
+    "on-click": "activate"
   },
 
   "custom/bluetooth": {
     "format": "󰂯",
     "tooltip": true,
     "tooltip-format": "Open Bluetooth settings",
-    "on-click": "systemsettings kcm_bluetooth"
+    "on-click": "blueman-manager"
   },
 
   "custom/wifi": {
     "format": "󰖩",
     "tooltip": true,
     "tooltip-format": "Open Wi-Fi settings",
-    "on-click": "systemsettings kcm_networkmanagement"
+    "on-click": "nm-connection-editor"
   },
 
   "custom/power": {
@@ -141,8 +158,9 @@
   },
 
   "clock": {
-    "format": "{:%a %d %b %R}",
-    "format-alt": "{:%H:%M}",
+    "format": "{:%a %d %b %H:%M:%S}",
+    "format-alt": "{:%H:%M:%S}",
+    "interval": 1,
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "year",

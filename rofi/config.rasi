@@ -71,21 +71,21 @@ configuration {
 	me-accept-entry: [ MousePrimary ];
 }
 
-/*---------- Catppuccin Mocha colors ----------*/
+/*---------- Osaka Jade colors ----------*/
 * {
-    base:      #1e1e2eff;
-    mantle:    #181825ff;
-    crust:     #11111bff;
-    text:      #cdd6f4ff;
-    subtext:   #a6adc8ff;
-    overlay:   #6c7086ff;
-    surface0:  #313244ff;
-    surface1:  #45475aff;
-    blue:      #89b4faff;
-    lavender:  #b4befeff;
-    red:       #f38ba8ff;
-    green:     #a6e3a1ff;
-    peach:     #fab387ff;
+    base:      #111c18ff;
+    mantle:    #0c1411ff;
+    crust:     #080e0cff;
+    text:      #c1c497ff;
+    subtext:   #acd4cfff;
+    overlay:   #53685bff;
+    surface0:  #23372bff;
+    surface1:  #53685bff;
+    blue:      #509475ff;
+    lavender:  #acd4cfff;
+    red:       #ff5345ff;
+    green:     #549e6aff;
+    peach:     #d7c995ff;
 
     background-color: @base;
     text-color:       @text;
@@ -171,48 +171,48 @@ element-text {
     vertical-align:     0.5;
 }
 
-/* ---------- Blue color scheme ---------- */
+/* ---------- Osaka Jade launcher ---------- */
 
 * {
-    background:      #182536ff;
-    background-alt:  #22344aff;
-    foreground:      #dbeafeff;
-    selected:        #315a7dff;
-    active:          #63b3edff;
-    urgent:          #f87171ff;
+    background:      #111c18ff;
+    background-alt:  #23372bff;
+    foreground:      #c1c497ff;
+    selected:        #509475ff;
+    active:          #2dd5b7ff;
+    urgent:          #ff5345ff;
 }
 
 /* Main Rofi window */
 window {
-    background-color: #101923ee;
+    background-color: #111c18ee;
     border:           2px;
-    border-color:     #63b3edff;
+    border-color:     #509475ff;
     border-radius:    18px;
     padding:          18px;
 }
 
 /* Search bar */
 inputbar {
-    background-color: #1d3045ff;
-    text-color:       #dbeafeff;
+    background-color: #23372bff;
+    text-color:       #c1c497ff;
     border-radius:    14px;
     padding:          10px;
     spacing:          10px;
 }
 
 prompt {
-    text-color: #93c5fdff;
+    text-color: #acd4cfff;
 }
 
 entry {
-    text-color: #dbeafeff;
+    text-color: #c1c497ff;
     cursor:     text;
 }
 
 case-indicator,
 num-filtered-rows,
 num-rows {
-    text-color: #93c5fdff;
+    text-color: #acd4cfff;
 }
 
 /* Result list */
@@ -224,8 +224,8 @@ listview {
 
 /* Base row */
 element {
-    background-color: #22344aff;
-    text-color:       #dbeafeff;
+    background-color: #23372bff;
+    text-color:       #c1c497ff;
     border-radius:    12px;
     padding:          8px 12px;
     spacing:          10px;
@@ -233,20 +233,20 @@ element {
 
 /* Normal rows */
 element normal.normal {
-    background-color: #22344aff;
-    text-color:       #dbeafeff;
+    background-color: #23372bff;
+    text-color:       #c1c497ff;
 }
 
 /* Alternate rows: also blue, never white */
 element alternate.normal {
-    background-color: #22344aff;
-    text-color:       #dbeafeff;
+    background-color: #23372bff;
+    text-color:       #c1c497ff;
 }
 
 /* Mouse-hovered / selected row */
 element selected.normal {
-    background-color: #315a7dff;
-    text-color:       #f0f9ffff;
+    background-color: #509475ff;
+    text-color:       #111c18ff;
 }
 
 /* Other possible states */
@@ -256,8 +256,8 @@ element normal.active,
 element normal.urgent,
 element alternate.active,
 element alternate.urgent {
-    background-color: #315a7dff;
-    text-color:       #f0f9ffff;
+    background-color: #509475ff;
+    text-color:       #111c18ff;
 }
 
 /* Icons and text */

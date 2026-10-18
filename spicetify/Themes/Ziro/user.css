@@ -1,42 +1,42 @@
 :root {
-  --spice-text: #cdd6f4;
-  --spice-subtext: #a6adc8;
-  --spice-main: #1e1e2e;
-  --spice-sidebar: #1e1e2e;
-  --spice-player: #181825;
-  --spice-card: #313244;
-  --spice-shadow: #11111b;
-  --spice-selected-row: #cba6f7;
-  --spice-button: #89b4fa;
-  --spice-button-active: #89b4fa;
-  --spice-button-disabled: #45475a;
-  --spice-tab-active: #89b4fa;
-  --spice-notification: #313244;
-  --spice-notification-error: #f38ba8;
-  --spice-misc: #11111b;
+  --spice-text: #c1c497;
+  --spice-subtext: #acd4cf;
+  --spice-main: #111c18;
+  --spice-sidebar: #111c18;
+  --spice-player: #0c1411;
+  --spice-card: #23372b;
+  --spice-shadow: #080e0c;
+  --spice-selected-row: #509475;
+  --spice-button: #2dd5b7;
+  --spice-button-active: #9eebb3;
+  --spice-button-disabled: #53685b;
+  --spice-tab-active: #2dd5b7;
+  --spice-notification: #23372b;
+  --spice-notification-error: #ff5345;
+  --spice-misc: #0c1411;
 
-  --spice-rgb-text: 205, 214, 244;
-  --spice-rgb-subtext: 166, 173, 200;
-  --spice-rgb-main: 30, 30, 46;
-  --spice-rgb-sidebar: 30, 30, 46;
-  --spice-rgb-player: 24, 24, 37;
-  --spice-rgb-card: 49, 50, 68;
-  --spice-rgb-shadow: 17, 17, 27;
-  --spice-rgb-selected-row: 203, 166, 247;
-  --spice-rgb-button: 137, 180, 250;
-  --spice-rgb-button-active: 137, 180, 250;
-  --spice-rgb-button-disabled: 69, 71, 90;
-  --spice-rgb-tab-active: 137, 180, 250;
-  --spice-rgb-notification: 49, 50, 68;
-  --spice-rgb-notification-error: 243, 139, 168;
-  --spice-rgb-misc: 17, 17, 27;
+  --spice-rgb-text: 193, 196, 151;
+  --spice-rgb-subtext: 172, 212, 207;
+  --spice-rgb-main: 17, 28, 24;
+  --spice-rgb-sidebar: 17, 28, 24;
+  --spice-rgb-player: 12, 20, 17;
+  --spice-rgb-card: 35, 55, 43;
+  --spice-rgb-shadow: 8, 14, 12;
+  --spice-rgb-selected-row: 80, 148, 117;
+  --spice-rgb-button: 45, 213, 183;
+  --spice-rgb-button-active: 158, 235, 179;
+  --spice-rgb-button-disabled: 83, 104, 91;
+  --spice-rgb-tab-active: 45, 213, 183;
+  --spice-rgb-notification: 35, 55, 43;
+  --spice-rgb-notification-error: 255, 83, 69;
+  --spice-rgb-misc: 12, 20, 17;
 
   --br-1: 10px;
   --br-2: 8px;
   --scrollbar: unset;
 }
 
-/* force lyrics and app to Catppuccin Mocha */
+/* force lyrics and app to Osaka Jade */
 .encore-dark-theme,
 .encore-dark-theme .encore-base-set {
   --text-subdued: var(--spice-subtext);
@@ -221,7 +221,7 @@
 }
 
 .playback-bar__progress-time-elapsed {
-  right: 50px !important;
+  right: 60px !important;
 }
 
 .main-nowPlayingBar-extraControls {

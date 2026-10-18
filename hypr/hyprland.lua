@@ -52,8 +52,7 @@ local terminal = "kitty"
 local vscode = "code --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
 hl.on("hyprland.start", function()
-	--hl.exec_cmd("swaybg -m fill -i /home/bruinhol/Downloads/galaxy-eyes.1920x1080.mp4")
-	hl.exec_cmd("mpvpaper -o 'no-audio --loop-file=inf' '*' ~/Downloads/minecraft-northern-light.1920x1080.mp4")
+	hl.exec_cmd("swaybg -m fill -i ~/Downloads/1-glowing-city.jpg")
 	hl.exec_cmd("nm-applet --indicator")
 	hl.exec_cmd("udiskie")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent.service")
@@ -73,9 +72,9 @@ hl.config({
 
 		border_size = 1,
 
-		col = { --cdd6f4
-			active_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
-			inactive_border = "rgba(595959aa)",
+		col = {
+			active_border = "rgba(509475ff)",
+			inactive_border = "rgba(53685baa)",
 		},
 
 		-- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -88,7 +87,7 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 5,
+		rounding = 10,
 		rounding_power = 2,
 
 		-- Change transparency of focused and unfocused windows
@@ -214,11 +213,11 @@ hl.bind(mainMod .. " + up", hl.dsp.window.fullscreen({ mode = "maximized", actio
 hl.bind(mainMod .. " + space", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("command -v swaync-client >/dev/null 2>&1 && swaync-client -t"))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("helium-browser"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("discord"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(vscode))
 hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("hyprctl switchxkblayout current next"))
+hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd("~/.local/share/quickshell-lockscreen/lock.sh"))
 hl.bind("Print", hl.dsp.exec_cmd("hyprshot -m region"))
 
 hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd(terminal))

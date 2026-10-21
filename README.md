@@ -1,186 +1,232 @@
 # dot-files
-
-Personal dotfiles and configuration files for my setup.
-
-## Contents
-
+ 
+Personal dotfiles and configuration files for my setup: a Wayland desktop on Arch (CachyOS) with [Hyprland](https://hypr.land/) and a Windows setup with Windhawk and YASB. Almost everything on the Linux side is themed from the current wallpaper with [wallust](https://codeberg.org/explosion-mental/wallust).
+ 
+<!-- Add screenshots here, e.g. ![Desktop](screenshots/desktop.png) -->
+ 
 > [!NOTE]
-> These configs are only tested on Arch Linux and use wallust with awww and waypaper, they will **not** work without them.
->
->This does not apply to fastfetch, wezterm, windhawk and yasb.
-
-| Folder | What it configures |
-| --- | --- |
-| [`WezTerm`](./WezTerm) | Config for [WezTerm](https://wezterm.org/), a GPU-accelerated terminal emulator (fonts, colors, keybindings, pane/tab management) for all operating systems |
-| [`kitty`](./kitty) | Config for [kitty](https://sw.kovidgoyal.net/kitty/), a GPU-accelerated terminal emulator for Linux |
-| [`hyprland`](./hypr) | Config for [Hyprland](https://hypr.land/), a tiling window manager |
-| [`rofi`](./rofi) | Config and theme for [Rofi](https://github.com/davatorium/rofi), an application launcher and window switcher |
-| [`fastfetch`](./fastfetch) | Config for [fastfetch](https://github.com/fastfetch-cli/fastfetch), a system information tool |
-| [`waybar`](./waybar) | Config for [Waybar](https://github.com/Alexays/Waybar), a highly customizable status bar for wlroots-based compositors |
-| [`Spicetify`](./Spicetify/Ziro) | [Spicetify](https://spicetify.app/) theme/config ("Ziro") for customizing the Spotify client |
-| [`vencord`](./vencord) | Config for [Vencord](https://vencord.dev/), a Discord client mod |
-| [`windhawk`](./windhawk) | Mod settings for [Windhawk](https://windhawk.net/), a Windows customization tool |
-| [`yasb`](./yasb) | Config for [YASB](https://github.com/amnweb/yasb), a highly configurable Windows status bar |
-
+> The Linux configs are only tested on Arch Linux and are built around **wallust**, **awww** and **waypaper**. They will not work properly without them.
+> This does not apply to fastfetch, WezTerm, Windhawk and YASB.
+ 
+## Contents
+ 
+| Folder | What it contains | Platform |
+| --- | --- | --- |
+| [`hypr/`](./hypr) | [Hyprland](https://hypr.land/) config written in **Lua**, wallpaper script, wallust colors | Linux |
+| [`wallust/`](./wallust) | `wallust.toml` and the color templates used to theme everything below | Linux |
+| [`waybar/`](./waybar) | [Waybar](https://github.com/Alexays/Waybar) config, style and generated colors | Linux |
+| [`rofi/`](./rofi) | [Rofi](https://github.com/davatorium/rofi) launcher config and generated colors | Linux |
+| [`kitty/`](./kitty) | [kitty](https://sw.kovidgoyal.net/kitty/) terminal config and generated colors | Linux / macOS |
+| [`WezTerm/`](./WezTerm) | [WezTerm](https://wezterm.org/) terminal config | Windows / Linux / macOS |
+| [`fastfetch/`](./fastfetch) | [fastfetch](https://github.com/fastfetch-cli/fastfetch) configs (basic, advanced, CachyOS-specific) | Any |
+| [`spicetify/`](./spicetify) | [Spicetify](https://spicetify.app/) themes (Ziro, caelestia, marketplace, wallust), the Marketplace custom app and `config-xpui.ini` | Any |
+| [`Vencord/`](./Vencord) | [Vencord](https://vencord.dev/) settings, QuickCSS and the wallust theme | Any |
+| [`windhawk/`](./windhawk) | [Windhawk](https://windhawk.net/) mod settings (taskbar, Start menu, tray, ...) | Windows |
+| [`yasb/`](./yasb) | [YASB](https://github.com/amnweb/yasb) status bar config, styles, theme and wallpapers | Windows |
+| [`wallpapers/`](./wallpapers) | Wallpaper collection used with awww / waypaper | Any |
+ 
 ## Usage
-
+ 
 Clone the repo:
-
+ 
 ```bash
 git clone https://github.com/vijfkebabs/dot-files.git
+cd dot-files
 ```
-
-Then copy or symlink the relevant config into place for each tool. Exact target paths depend on the tool and operating system — see below for the ones that live in fixed locations.
-
-### WezTerm
-
-Copy or symlink `WezTerm/wezterm.lua` to:
-
-- **Windows:** `%USERPROFILE%\.config\wezterm\wezterm.lua` or `%USERPROFILE%\.wezterm.lua`
-- **macOS/Linux:** `~/.config/wezterm/wezterm.lua`
-
-### kitty
-
-Copy or symlink the config to:
-
-- **Linux/macOS:** `~/.config/kitty/kitty.conf`
-- **Windows (WSL):** the same path inside your WSL distribution
-
+ 
+Then copy or symlink each folder to its place (back up your own configs first). Exact paths are listed per tool below.
+ 
+## Linux desktop
+ 
+### Dependencies
+ 
+Used by the Hyprland config and its keybinds: `hyprland`, `awww` (+ `awww-daemon`), `waypaper`, `wallust`, `waybar`, `rofi`, `swaync`, `kitty`, `hyprshot`, `hyprpicker`, `hyprpolkitagent`, `brightnessctl`, `playerctl`, `wpctl` (PipeWire), `nm-applet`, `udiskie`, `syncthing`, `hyprtasking` (via `hyprpm`) and `quickshell`. Install what you actually use.
+ 
+The fonts are JetBrainsMono Nerd Font.
+ 
 ### Hyprland
-
-Copy or symlink the contents of `hypr` to:
-
-```text
-~/.config/hypr/
-```
-
-Then reload the config from within Hyprland:
-
+ 
+`hypr/` is a Lua config. It needs a Hyprland version with Lua config support.
+ 
 ```bash
+ln -sfn "$PWD/hypr" ~/.config/hypr
 hyprctl reload
 ```
-
+ 
+| Path | Purpose |
+| --- | --- |
+| `hyprland.lua` | Main config: monitor, autostart, general/decoration/animations, input (Belgian + US layout), keybinds and window rules |
+| `colors.lua` | **Generated by wallust.** Provides the border colors; `hyprland.lua` falls back to default colors if it is missing |
+| `variables.lua`, `scheme/` | Caelestia-style variables and color scheme (`default.lua`, `current.lua`) |
+| `hyprland/` | Modular split of the config: `animations`, `decoration`, `env`, `execs`, `general`, `gestures`, `group`, `input`, `keybinds`, `misc`, `rules` |
+| `utils/` | Helper modules (`functions.lua`, `json.lua`) |
+| `scripts/wall.sh` | Sets the wallpaper with awww, runs wallust, then reloads Hyprland |
+ 
+Some keybinds (`SUPER` is the main modifier):
+ 
+| Keys | Action |
+| --- | --- |
+| `SUPER + Space` | Rofi app launcher |
+| `SUPER + T` | Terminal (kitty) |
+| `SUPER + W` / `SUPER + SHIFT + W` | Waypaper / random wallpaper |
+| `SUPER + P` / `SUPER + SHIFT + P` | Region screenshot / color picker |
+| `SUPER + N` | Toggle notification center |
+| `SUPER + K` | Switch keyboard layout |
+| `SUPER + 1-0` (number row) | Switch workspace (`SHIFT` moves the window) |
+| `ALT + Tab` | Cycle windows |
+ 
+Keybinds are written like this:
+ 
+```lua
+local mainMod = "SUPER"
+ 
+hl.bind(mainMod .. " + space", hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("kitty"))
+```
+ 
+### Wallust (dynamic theming)
+ 
+`wallust/wallust.toml` registers one template per app. Running wallust on an image renders each template and writes it to the target below:
+ 
+| Template | Output |
+| --- | --- |
+| `colors.lua` | `~/.config/hypr/colors.lua` |
+| `waybar.template.css` | `~/.config/waybar/wallust/colors-waybar.css` |
+| `colors.rasi` | `~/.config/rofi/colors.rasi` |
+| `colors-kitty.conf` | `~/.config/kitty/colors-kitty.conf` |
+| `colors-swaync.css` | `~/.config/swaync/style.css` |
+| `colors.json`, `colors` | `~/.cache/wallust/` (for editor tooling) |
+| `colors-pywalfox.json` | `~/.cache/wal/colors.json` (Pywalfox) |
+| `btop.theme` | `~/.config/btop/themes/wallust.theme` |
+| `vencord.theme.css` | `~/.config/Vencord/themes/wallust.theme.css` |
+| `spicetify.ini` | `~/.config/spicetify/Themes/wallust/color.ini` |
+ 
+Setup:
+ 
+```bash
+mkdir -p ~/.config/wallust
+cp -r wallust/. ~/.config/wallust/
+```
+ 
+Change the wallpaper and re-theme everything with the included script:
+ 
+```bash
+~/.config/hypr/scripts/wall.sh /path/to/wallpaper.png
+```
+ 
+It runs `awww img`, `wallust run` and `hyprctl reload`. To use it from Waypaper, set it as the post command with `$wallpaper` as the argument.
+ 
+After wallust runs:
+ 
+- **Kitty, Waybar, Rofi, Hyprland:** pick up the new colors on reload or next launch.
+- **Vencord:** enable `wallust.theme.css` under Settings → Vencord → Themes once.
+- **btop:** set `color_theme = "wallust"` in `btop.conf` and restart btop.
+- **Spicetify:** run `spicetify apply` to load the new `color.ini`.
+### Waybar
+ 
+```bash
+ln -sfn "$PWD/waybar" ~/.config/waybar
+```
+ 
+Workspaces on the left, clock in the center, and media (MPRIS), volume, CPU, memory, battery, Bluetooth, Wi-Fi, notifications and lock on the right. `wallust/colors-waybar.css` is generated.
+ 
 ### Rofi
-
-Install Rofi on CachyOS or another Arch-based distribution:
-
+ 
 ```bash
-sudo pacman -S rofi-wayland
-```
-
-Copy or symlink the contents of `rofi` to:
-
-```text
-~/.config/rofi/
-```
-
-The Rofi configuration contains the launcher behavior and the theme contains the colors and styling. Make sure the theme file is loaded by the configuration or by the launch command.
-
-Launch Rofi's application menu with:
-
-```bash
+ln -sfn "$PWD/rofi" ~/.config/rofi
 rofi -show drun
 ```
-
-If you want to launch it with a specific theme:
-
+ 
+`config.rasi` holds the launcher behavior and styling, and imports the generated `colors.rasi`.
+ 
+### kitty
+ 
 ```bash
-rofi -show drun -theme ~/.config/rofi/config.rasi
+ln -sfn "$PWD/kitty" ~/.config/kitty
 ```
-
-For a Hyprland keybind, use for example:
-
-```ini
-bind = SUPER, D, exec, rofi -show drun
-```
-
-If the theme has a different filename, replace `config.rasi` with the correct filename.
-
-The Rofi theme uses a blue color scheme. Normal and alternate rows use dark blue backgrounds, while the row selected or hovered with the mouse uses a lighter blue background:
-
-```rasi
-element normal.normal {
-    background-color: #22344aff;
-    text-color: #dbeafeff;
-}
-
-element alternate.normal {
-    background-color: #22344aff;
-    text-color: #dbeafeff;
-}
-
-element selected.normal {
-    background-color: #315a7dff;
-    text-color: #f0f9ffff;
-}
-```
-
-### fastfetch
-
-Copy or symlink the config to:
-
-```text
-~/.config/fastfetch/config.jsonc
-```
-
-### Waybar
-
-Copy or symlink the contents of `waybar` to:
-
-```text
-~/.config/waybar/
-```
-
-This includes the main `config.jsonc` and styling in `style.css`, which are used to control the bar layout, modules, colors, and visual theme.
-
+ 
+`kitty.conf` includes the generated `colors-kitty.conf`, so run wallust once before the first launch.
+ 
 ### Spicetify
-
-Follow the [Spicetify install instructions](https://spicetify.app/docs/getting-started), then apply the `Ziro` theme from the `Spicetify/Ziro` folder by placing it in your Spicetify `Themes` directory.
-
-Then run:
-
+ 
+Follow the [Spicetify install instructions](https://spicetify.app/docs/getting-started), then:
+ 
 ```bash
-spicetify config current_theme Ziro
+mkdir -p ~/.config/spicetify
+cp -r spicetify/Themes spicetify/CustomApps ~/.config/spicetify/
+ 
+spicetify config current_theme wallust color_scheme wallust
 spicetify apply
 ```
-
+ 
+Themes: `Ziro`, `caelestia`, `marketplace` and the wallust-driven `wallust` theme. To use another one, change `current_theme` (and `color_scheme` if the theme has several).
+ 
+> [!WARNING]
+> `config-xpui.ini` contains absolute paths from my machine (for example `prefs_path` and `spotify_path`). Don't copy it over your own config. Compare it and keep your paths.
+ 
 ### Vencord
-
-Copy the contents of `vencord` into the Vencord QuickCSS settings in Discord.
-
+ 
+- `Vencord/themes/wallust.theme.css`: copy to your Vencord themes folder (Settings → Vencord → Themes → Open Themes Folder) and enable it.
+- `Vencord/settings/quickCss.css`: paste into QuickCSS, or copy to `~/.config/Vencord/settings/`.
+- `Vencord/settings/settings.json`: copy to `~/.config/Vencord/settings/` while Discord is closed.
+Vesktop and Flatpak installs use different folders, so use the **Open Themes Folder** button to find yours.
+ 
+## Cross-platform
+ 
+### fastfetch
+ 
+Three variants. Pick one and copy its files to `~/.config/fastfetch/`:
+ 
+| Folder | Contents |
+| --- | --- |
+| `fastfetch/basic/` | `config.jsonc` |
+| `fastfetch/advanced/` | `config.jsonc` + `ascii.txt` |
+| `fastfetch/cachy specific/` | `config.jsonc` + `logo.txt` |
+ 
+The config references its logo file by path, so keep the logo next to `config.jsonc` (or fix the path inside it).
+ 
+### WezTerm
+ 
+Copy or symlink `WezTerm/wezterm.lua` to:
+ 
+- **Windows:** `%USERPROFILE%\.config\wezterm\wezterm.lua` or `%USERPROFILE%\.wezterm.lua`
+- **macOS/Linux:** `~/.config/wezterm/wezterm.lua`
+The config sets `powershell.exe` as the default program. On Linux or macOS, remove or change `config.default_prog`. Color scheme is Catppuccin Mocha, and the leader key is `Ctrl + A`.
+ 
+## Windows
+ 
 ### Windhawk
-
-Copy the contents from `windhawk` into the Advanced tab of the respective Windhawk mods.
-
+ 
+Install [Windhawk](https://windhawk.net/) and the matching mods, then copy the contents of each JSON file into the **Advanced** tab of the respective mod:
+ 
+- `Win11_taskbar_styler.json`
+- `Win11_Start_Menu_Styler.json`
+- `Win11_clock_taskbar_customizer.json`
+- `Win11_fluent_taskbar_mediaplayer.json`
+- `Win11_notification_center_styler.json`
+- `Win11_settings_styler.json`
+- `Win11_system_tray_tweaks.json`
 ### YASB
-
-The `yasb` folder contains the YASB configuration, stylesheet, theme, and wallpapers.
-
-Copy or symlink the contents of `yasb` to your YASB configuration directory.
-
-If you do not have YASB installed yet, install it with:
-
+ 
 ```powershell
 winget install --id AmN.yasb
 ```
-
-The configuration folder usually lives at:
-
-```text
-%USERPROFILE%\.config\yasb\
-```
-
-The folder contains:
-
-- `config.yaml` — YASB bar and widget configuration
-- `styles.css` — YASB styling
-- `theme.json` — theme configuration
-- `Wallpapers/` — wallpapers used by the wallpaper widget
-
-Any wallpaper added to this folder can be shown by the wallpaper widget. You may need to update the wallpaper path in `config.yaml`.
-
+ 
+Copy or symlink the contents of `yasb/` to `%USERPROFILE%\.config\yasb\`:
+ 
+- `config.yaml`: bar and widget configuration
+- `styles.css`: styling
+- `theme.json`: theme configuration
+- `Wallpapers/`: wallpapers for the wallpaper widget
+The config starts [komorebi](https://github.com/LGUG2323/komorebi) with `whkd` (`komorebic start --whkd`), so install those too, or remove the `komorebi` section. You may also need to update the wallpaper path in `config.yaml`.
+ 
+## Wallpapers
+ 
+`wallpapers/` is a collection of wallpapers. Point Waypaper at it (or at a copy) and pick one with `SUPER + W`.
+ 
 ## Notes
-
-- These configs are tailored to my own setup and preferences — feel free to fork and adapt them.
-- There is no guarantee that these configs will work for everyone, and they may break your setup.
+ 
+- These configs are tailored to my own setup and preferences. Feel free to fork and adapt them.
+- There is no guarantee they will work for everyone since they are only tested on Arch Linux, and they may break your setup.
 - Use these dotfiles at your own risk.
+ 

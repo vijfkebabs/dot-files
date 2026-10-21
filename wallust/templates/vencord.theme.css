@@ -1,0 +1,41 @@
+/**
+ * @name Wallust
+ * @description Colors generated from the wallpaper
+ * @version 1.0
+ */
+
+:root,
+.theme-dark,
+.theme-light {
+    --wl-bg:     {{background}};
+    --wl-bg-alt: {{color0}};
+    --wl-fg:     {{foreground}};
+    --wl-accent: {{color4}};
+    --wl-muted:  {{color8}};
+
+    /* Older Discord variable names */
+    --background-primary:       var(--wl-bg);
+    --background-secondary:     var(--wl-bg-alt);
+    --background-secondary-alt: var(--wl-bg-alt);
+    --background-tertiary:      var(--wl-bg);
+    --background-floating:      var(--wl-bg-alt);
+    --channeltextarea-background: var(--wl-bg-alt);
+
+    /* Newer Discord variable names */
+    --background-base-low:      var(--wl-bg-alt);
+    --background-base-lower:    var(--wl-bg);
+    --background-base-lowest:   var(--wl-bg);
+    --background-surface-high:  var(--wl-bg-alt);
+
+    --text-normal:        var(--wl-fg);
+    --header-primary:     var(--wl-fg);
+    --header-secondary:   var(--wl-muted);
+    --text-muted:         var(--wl-muted);
+    --interactive-normal: var(--wl-fg);
+    --interactive-hover:  var(--wl-accent);
+    --interactive-active: var(--wl-accent);
+
+    --brand-experiment:     var(--wl-accent);
+    --brand-500:            var(--wl-accent);
+    --text-link:            var(--wl-accent);
+}

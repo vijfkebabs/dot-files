@@ -1,0 +1,18 @@
+@define-color base     #10150B;
+@define-color mantle   shade(@base, 0.85);
+@define-color crust    shade(@base, 0.70);
+
+@define-color text     #F4F3D2;
+@define-color subtext0 #EFEFCD;
+@define-color subtext1 #EEEEDE;
+
+@define-color surface0 mix(@base, @text, 0.10);
+@define-color surface1 mix(@base, @text, 0.20);
+@define-color overlay0 #9B9B7E;
+
+@define-color blue     #EDE9D8;
+@define-color teal     #E0E0BF;
+@define-color green    #5D8154;
+@define-color yellow   #4B5743;
+@define-color peach    #4B5743;
+@define-color red      #739160;

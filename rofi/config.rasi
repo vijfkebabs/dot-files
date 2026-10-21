@@ -1,270 +1,177 @@
 configuration {
-	modi: "drun,run,filebrowser,window";
-	case-sensitive: false;
-	cycle: true;
-	normalize-match: true;
-	show-icons: true;
-	matching: "normal";
-	tokenize: true;
+    modi: "drun,run,filebrowser,window";
+    case-sensitive: false;
+    cycle: true;
+    normalize-match: true;
+    show-icons: true;
+    matching: "normal";
+    tokenize: true;
 
     kb-cancel: "Escape,MousePrimary";
+    kb-page-prev: "ScrollUp";
+    kb-page-next: "ScrollDown";
+    ml-row-down: "";
+    ml-row-up: "";
 
-	kb-page-prev: "ScrollUp";
-	kb-page-next: "ScrollDown";
-	ml-row-down: "";
-	ml-row-up: "";
-
-	/*---------- Drun settings ----------*/
-	drun-match-fields: "name,exec,generic,comment";
-	drun-display-format: "{name} <span size='small'><i>({comment})</i></span>";
-	drun-url-launcher: "xdg-open";
-	drun-show-actions: false;
-	drun-use-desktop-cache: false;
-	drun-reload-desktop-cache: false;
-	drun {
-		parse-user:   true;
-		parse-system: true;
+    /*---------- Drun settings ----------*/
+    drun-match-fields: "name,exec,generic,comment";
+    drun-display-format: "{name} <span size='small'><i>({comment})</i></span>";
+    drun-url-launcher: "xdg-open";
+    drun-show-actions: false;
+    drun-use-desktop-cache: false;
+    drun-reload-desktop-cache: false;
+    drun {
+        parse-user:   true;
+        parse-system: true;
     }
 
-	/*---------- Run settings ----------*/
-	run-command: "{cmd}";
-	run-shell-command: "{terminal} -e {cmd}";
+    /*---------- Run settings ----------*/
+    run-command: "{cmd}";
+    run-shell-command: "{terminal} -e {cmd}";
 
-	/*---------- Fallback Icon ----------*/
-	run, drun {
-		fallback-icon: "application-default-icon";
-	}
+    /*---------- Fallback Icons ----------*/
+    run, drun {
+        fallback-icon: "application-default-icon";
+    }
 
-	filebrowser {
-		fallback-icon: "application-x-zerosize";
-	}
+    filebrowser {
+        fallback-icon: "application-x-zerosize";
+    }
 
-	/*---------- Window switcher settings ----------*/
-	window-match-fields: "title,class,role,name,desktop";
-	window-command: "wmctrl -i -R {window}";
-	window-format: "{w} - {c} - {t:0}";
-	window-thumbnail: true;
+    /*---------- Wayland Window Switcher settings ----------*/
+    window-match-fields: "title,class";
+    window-command: "wmctrl -i -R {window}";
+    window-format: "{w} - {c} - {t:0}";
+    window-thumbnail: true;
 
-	disable-history: false;
-	sorting-method: "normal";
+    disable-history: false;
+    sorting-method: "normal";
 
-	/*---------- Misc setting ----------*/
-	terminal: "kitty";
-	sort: false;
-	threads: 0;
+    /*---------- Misc setting ----------*/
+    terminal: "kitty";
+    sort: false;
+    threads: 0;
 
-	/*---------- File browser settings ----------*/
+    /*---------- File browser settings ----------*/
     filebrowser {
       show-hidden: true;
       directories-first: true;
       sorting-method:    "mtime";
     }
 
-	/*---------- Other settings ----------*/
+    /*---------- Other settings ----------*/
     timeout {
       action: "kb-cancel";
       delay:  0;
     }
 
-	hover-select: true;
-	me-select-entry: "";
-	me-accept-entry: [ MousePrimary ];
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: [ MousePrimary ];
 }
 
-/*---------- Osaka Jade colors ----------*/
-* {
-    base:      #111c18ff;
-    mantle:    #0c1411ff;
-    crust:     #080e0cff;
-    text:      #c1c497ff;
-    subtext:   #acd4cfff;
-    overlay:   #53685bff;
-    surface0:  #23372bff;
-    surface1:  #53685bff;
-    blue:      #509475ff;
-    lavender:  #acd4cfff;
-    red:       #ff5345ff;
-    green:     #549e6aff;
-    peach:     #d7c995ff;
-
-    background-color: @base;
-    text-color:       @text;
-    font:             "CaskaydiaCove Nerd Font, bold 12";
-}
-
-window {
-    transparency:      "real";
-    background-color:  @base;
-    border:             2px;
-    border-color:       @lavender;
-    border-radius:      15px;
-    width:              450px;
-    padding:            10px;
-}
-
-mainbox {
-    background-color: transparent;
-    spacing:            10px;
-    children:           [ "inputbar", "listview" ];
-}
-
-inputbar {
-    background-color: @surface0;
-    text-color:         @text;
-    border-radius:      16px;
-    padding:            10px 15px;
-    spacing:            10px;
-    children:           [ "prompt", "entry" ];
-}
-
-prompt {
-    background-color: transparent;
-    text-color:         @lavender;
-}
-
-entry {
-    background-color:  transparent;
-    text-color:         @text;
-    placeholder-color:  @overlay;
-    placeholder:        "Search...";
-}
-
-listview {
-    background-color: @surface0;
-    border-radius:      16px;
-    padding:            10px 8px;
-    spacing:            5px;
-    columns:            1;
-    lines:              10;
-    fixed-height:       true;
-    scrollbar:          false;
-}
-
-element {
-    background-color: transparent;
-    text-color:         @text;
-    padding:            6px 10px;
-    border-radius:      12px;
-    spacing:            8px;
-    cursor:             pointer;
-}
-
-
-element normal.normal {
-    background-color: @surface1;
-    text-color:         @lavender;
-}
-
-element selected.normal {
-    background-color: @surface0;
-    text-color:         @text;
-}
-
-element-icon {
-    background-color: transparent;
-    size:               1.2em;
-}
-
-element-text {
-    background-color: transparent;
-    text-color:         inherit;
-    vertical-align:     0.5;
-}
-
-/* ---------- Osaka Jade launcher ---------- */
+/* -------------------------------------------------------------------------
+ * IMPORTS & THEME SETUP
+ * ------------------------------------------------------------------------- */
+@import "colors.rasi"
 
 * {
-    background:      #111c18ff;
-    background-alt:  #23372bff;
-    foreground:      #c1c497ff;
-    selected:        #509475ff;
-    active:          #2dd5b7ff;
-    urgent:          #ff5345ff;
+    font: "CaskaydiaCove Nerd Font, bold 12";
 }
 
 /* Main Rofi window */
 window {
-    background-color: #111c18ee;
-    border:           2px;
-    border-color:     #509475ff;
-    border-radius:    18px;
-    padding:          18px;
+    transparency:      "real";
+    background-color:  @base;
+    border:             2px;
+    border-color:       @selected;
+    border-radius:      18px;
+    width:              450px;
+    padding:            18px;
+}
+
+mainbox {
+    background-color:  transparent;
+    spacing:           10px;
+    children:          [ "inputbar", "listview" ];
 }
 
 /* Search bar */
 inputbar {
-    background-color: #23372bff;
-    text-color:       #c1c497ff;
-    border-radius:    14px;
-    padding:          10px;
-    spacing:          10px;
+    background-color:  @background-alt;
+    text-color:        @text;
+    border-radius:     14px;
+    padding:           10px 15px;
+    spacing:           10px;
+    children:          [ "prompt", "entry" ];
 }
 
 prompt {
-    text-color: #acd4cfff;
+    background-color:  transparent;
+    text-color:        @subtext;
 }
 
 entry {
-    text-color: #c1c497ff;
-    cursor:     text;
+    background-color:  transparent;
+    text-color:        @text;
+    placeholder-color: @overlay;
+    placeholder:       "Search...";
+    cursor:            text;
 }
 
 case-indicator,
 num-filtered-rows,
 num-rows {
-    text-color: #acd4cfff;
+    background-color:  transparent;
+    text-color:        @subtext;
 }
 
 /* Result list */
 listview {
-    background-color: transparent;
-    spacing:          8px;
-    padding:          12px 0px 0px 0px;
+    background-color:  transparent;
+    border-radius:     16px;
+    padding:           12px 0px 0px 0px;
+    spacing:           8px;
+    columns:           1;
+    lines:             10;
+    fixed-height:      true;
+    scrollbar:         false;
 }
 
-/* Base row */
+/* Element rows */
 element {
-    background-color: #23372bff;
-    text-color:       #c1c497ff;
-    border-radius:    12px;
-    padding:          8px 12px;
-    spacing:          10px;
+    background-color:  @background-alt;
+    text-color:        @text;
+    padding:           8px 12px;
+    border-radius:     12px;
+    spacing:           10px;
+    cursor:            pointer;
 }
 
-/* Normal rows */
-element normal.normal {
-    background-color: #23372bff;
-    text-color:       #c1c497ff;
-}
-
-/* Alternate rows: also blue, never white */
+element normal.normal,
 element alternate.normal {
-    background-color: #23372bff;
-    text-color:       #c1c497ff;
+    background-color:  @background-alt;
+    text-color:        @text;
 }
 
-/* Mouse-hovered / selected row */
-element selected.normal {
-    background-color: #509475ff;
-    text-color:       #111c18ff;
-}
-
-/* Other possible states */
+element selected.normal,
 element selected.active,
 element selected.urgent,
 element normal.active,
 element normal.urgent,
 element alternate.active,
 element alternate.urgent {
-    background-color: #509475ff;
-    text-color:       #111c18ff;
+    background-color:  @selected;
+    text-color:        @base;
 }
 
-/* Icons and text */
 element-icon {
-    size: 32px;
+    background-color:  transparent;
+    size:              32px;
 }
 
 element-text {
-    text-color: inherit;
+    background-color:  transparent;
+    text-color:        inherit;
+    vertical-align:    0.5;
 }

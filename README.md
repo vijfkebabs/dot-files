@@ -4,6 +4,11 @@ Personal dotfiles and configuration files for my setup.
 
 ## Contents
 
+> [!NOTE]
+> These configs are only tested on Arch Linux and use wallust with awww and waypaper, they will **not** work without them.
+>
+>This does not apply to fastfetch, wezterm, windhawk and yasb.
+
 | Folder | What it configures |
 | --- | --- |
 | [`WezTerm`](./WezTerm) | Config for [WezTerm](https://wezterm.org/), a GPU-accelerated terminal emulator (fonts, colors, keybindings, pane/tab management) for all operating systems |

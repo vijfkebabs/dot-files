@@ -1,0 +1,27 @@
+/* ~/.config/wallust/templates/colors.rasi */
+* {
+    /* Main palette mapping */
+    base:      #10150B;
+    mantle:    #33352C;
+    crust:     #9B9B7E;
+    text:      #F4F3D2;
+    subtext:   #EFEFCD;
+    overlay:   #9B9B7E;
+    surface0:  #33352C;
+    surface1:  #9B9B7E;
+    
+    /* Accent colors */
+    blue:      #EDE9D8;
+    lavender:  #665953;
+    red:       #739160;
+    green:     #5D8154;
+    peach:     #4B5743;
+
+    /* Theme roles */
+    background:      @base;
+    background-alt:  @surface0;
+    foreground:      @text;
+    selected:        @blue;
+    active:          @green;
+    urgent:          @red;
+}

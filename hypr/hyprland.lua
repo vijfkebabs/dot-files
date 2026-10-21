@@ -52,7 +52,8 @@ local terminal = "kitty"
 local vscode = "code --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd("swaybg -m fill -i ~/Downloads/1-glowing-city.jpg")
+	-- swaybg disabled: awww + waypaper handle the wallpaper now
+	-- hl.exec_cmd("swaybg -m fill -i ~/Pictures/dharmx-digital/osaka.jpg")
 	hl.exec_cmd("nm-applet --indicator")
 	hl.exec_cmd("udiskie")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent.service")
@@ -60,10 +61,20 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd(terminal)
 	hl.exec_cmd("syncthing")
 	hl.exec_cmd("waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css")
+	hl.exec_cmd("hyprpm enable hyprtasking && hyprpm reload -f")
+	hl.exec_cmd("awww-daemon")
+	hl.exec_cmd("waypaper --restore")
 end)
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+
+-- wallust-generated colors (~/.config/hypr/colors.lua)
+-- dofile (not require) so a reload always picks up the newest colors
+local ok, c = pcall(dofile, os.getenv("HOME") .. "/.config/hypr/colors.lua")
+if not ok then
+	c = { accent = "71cead", inactive = "53685b" } -- fallback: your old colors
+end
 
 hl.config({
 	general = {
@@ -73,8 +84,8 @@ hl.config({
 		border_size = 1,
 
 		col = {
-			active_border = "rgba(509475ff)",
-			inactive_border = "rgba(53685baa)",
+			active_border = "rgba(" .. c.accent .. "ff)",
+			inactive_border = "rgba(" .. c.inactive .. "aa)",
 		},
 
 		-- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -213,12 +224,18 @@ hl.bind(mainMod .. " + up", hl.dsp.window.fullscreen({ mode = "maximized", actio
 hl.bind(mainMod .. " + space", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("command -v swaync-client >/dev/null 2>&1 && swaync-client -t"))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("qs -c ipc call themeswitch cycle"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("helium-browser"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("discord"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("spotify"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(vscode))
 hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("hyprctl switchxkblayout current next"))
+hl.bind(mainMod .. " + twosuperior", function() hl.plugin.hyprtasking.toggle("cursor") end)
 hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd("~/.local/share/quickshell-lockscreen/lock.sh"))
-hl.bind("Print", hl.dsp.exec_cmd("hyprshot -m region"))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprshot -m region -s"))
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd([[hyprpicker -a | xargs -I{} notify-send "Color copied" "{}"]]))
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("waypaper"))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("waypaper --random"))
 
 hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd(terminal))
 hl.bind("CTRL + ALT + U", hl.dsp.exec_cmd(terminal))

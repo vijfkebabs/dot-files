@@ -1,90 +1,39 @@
-/* Catppuccin Mocha — KDE Wayland Waybar */
-
-@define-color base     #1e1e2e;
-@define-color mantle   #181825;
-@define-color crust    #11111b;
-
-@define-color text     #cdd6f4;
-@define-color subtext0 #a6adc8;
-@define-color subtext1 #bac2de;
-@define-color overlay0 #6c7086;
-
-@define-color surface0 #313244;
-@define-color surface1 #45475a;
-
-@define-color mauve    #cba6f7;
-@define-color lavender #b4befe;
-@define-color blue     #89b4fa;
-@define-color teal     #94e2d5;
-@define-color green    #a6e3a1;
-@define-color yellow   #f9e2af;
-@define-color peach    #fab387;
-@define-color red      #f38ba8;
+/* Install to: ~/.config/waybar/style.css
+   Colors come from ~/.config/waybar/wallust/colors-waybar.css,
+   which wallust generates (do not edit that file by hand). */
+@import "wallust/colors-waybar.css";
 
 * {
     all: unset;
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 12px;
+    font-size: 10px;
 }
 
 window#waybar {
     background-color: @base;
-    border-bottom: 1px solid @teal;
-}
-
-tooltip {
-    background-color: @mantle;
-    border: 1px solid @surface0;
-    border-radius: 8px;
-    padding: 6px 10px;
-}
-
-tooltip label {
+    border: 1px solid @blue;
+    border-radius: 10px;
     color: @text;
 }
 
-menu {
-    background-color: @mantle;
-    border: 1px solid @surface0;
-    border-radius: 8px;
-    padding: 4px;
-}
-
-menu menuitem {
-    padding: 6px 10px;
-    border-radius: 6px;
-    color: @subtext1;
-}
-
-menu menuitem:hover {
-    background-color: @surface1;
-    color: @text;
-}
-
-/* Shared module styling */
-
-#clock,
+#workspaces,
 #mpris,
+#wireplumber,
+#backlight,
+#battery,
+#clock,
+#custom-notification,
 #custom-bluetooth,
 #custom-wifi,
-#custom-power,
-#pulseaudio,
-#battery,
-#custom-cpu,
-#custom-gpu,
-#memory,
-#disk,
-#tray {
+#custom-lock {
     color: @text;
-    padding: 2px 10px;
-    margin: 1px 2px;
-    border-radius: 10px;
+    padding: 2px 6px;
+    margin: 1px;
+    border-radius: 8px;
 }
 
-/* Open windows */
-
 #workspaces {
-    margin: 1px 3px;
+    margin-left: 3px;
 }
 
 #workspaces button {
@@ -97,125 +46,34 @@ menu menuitem:hover {
 }
 
 #workspaces button.active {
-    color: @text;
+    color: @base;
+    background-color: @blue;
 }
 
 #workspaces button.urgent {
     color: @red;
 }
 
-#taskbar {
-    margin: 1px 3px;
+#mpris {
+    color: @subtext1;
+    min-width: 180px;
 }
-
-#taskbar button {
-    min-width: 22px;
-    min-height: 18px;
-    padding: 0 2px;
-    margin: 0;
-    border-radius: 8px;
-}
-
-#taskbar button:hover {
-    background-color: @surface0;
-}
-
-#taskbar button.active {
-    background-color: @surface1;
-}
-
-#taskbar button.minimized {
-    opacity: 0.6;
-}
-
-#taskbar button.urgent {
-    background-color: @red;
-}
-
-/* Clock */
 
 #clock {
-    color: @blue;
+    color: @peach;
     font-weight: bold;
 }
 
-#mpris {
-    color: @peach;
-    min-width: 180px;
-    padding-left: 6px;
-    padding-right: 6px;
-    margin-left: 1px;
-    margin-right: 1px;
-}
-
-#pulseaudio,
-#custom-cpu,
-#custom-gpu,
-#memory,
-#battery,
-#custom-bluetooth,
-#custom-wifi,
-#custom-power {
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-left: 1px;
-    margin-right: 1px;
-}
-
-#custom-cpu,
-#custom-gpu {
-    font-size: 12px;
-}
-
-#custom-bluetooth,
-#custom-wifi {
-    padding-top: 4px;
-    padding-bottom: 4px;
-}
-
-#custom-bluetooth {
-    color: @blue;
-}
-
-#custom-wifi {
+#wireplumber {
     color: @teal;
 }
 
-#custom-power {
-    color: @red;
-}
-
-#mpris label {
-    animation: mpris-marquee 12s ease-in-out infinite alternate;
-}
-
-@keyframes mpris-marquee {
-    from {
-        margin-left: 0;
-    }
-    to {
-        margin-left: -120px;
-    }
-}
-
-/* Audio */
-
-#pulseaudio {
-    color: @green;
-}
-
-#pulseaudio.muted {
+#wireplumber.muted {
     color: @overlay0;
 }
 
-/* Battery */
-
 #battery {
     color: @green;
-}
-
-#battery.charging {
-    color: @teal;
 }
 
 #battery.warning:not(.charging) {
@@ -226,35 +84,40 @@ menu menuitem:hover {
     color: @red;
 }
 
-/* CPU, GPU, memory, and disk */
-
-#custom-cpu {
-    color: @yellow;
-}
-
-#custom-gpu {
-    color: @peach;
+#custom-bluetooth,
+#custom-wifi {
+    color: @blue;
 }
 
 #memory {
-    color: @lavender;
+    margin-left: 10px;
 }
 
-#disk {
-    color: @mauve;
+#custom-lock {
+    min-width: 16px;
+    /* relative to this stylesheet: keep the svg next to style.css */
+    background-image: url("cachyos-yellow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px 16px;
+    margin-right: 3px;
 }
 
-/* System tray */
-
-#tray {
-    padding: 2px 10px;
+#custom-bluetooth:hover,
+#custom-wifi:hover,
+#custom-lock:hover,
+#custom-notification:hover,
+#workspaces button:hover {
+    background-color: @surface0;
 }
 
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    background-color: @red;
+tooltip {
+    background-color: @mantle;
+    border: 1px solid @surface0;
     border-radius: 8px;
+    padding: 6px 10px;
+}
+
+tooltip label {
+    color: @text;
 }

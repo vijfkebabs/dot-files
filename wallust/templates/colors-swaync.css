@@ -1,0 +1,67 @@
+:root {
+  --cc-bg: {{background}}ee; /* ~0.94 opacity */
+  --noti-border-color: {{color4}}bf; /* ~0.72 opacity */
+  --noti-bg: {{background}};
+  --noti-bg-alpha: 0.6;
+  --noti-bg-darker: {{color0}};
+  --noti-bg-hover: {{color8}};
+  --noti-bg-focus: {{color4}}bf;
+  --noti-close-bg: {{color8}};
+  --noti-close-bg-hover: {{color1}};
+  --text-color: {{foreground}};
+  --text-color-disabled: {{color8}};
+  --bg-selected: {{color4}};
+  --border-radius: 5px;
+  --border: 1px solid var(--noti-border-color);
+  --notification-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+@define-color cc-bg {{background}}ee;
+@define-color noti-border-color {{color4}}bf;
+@define-color noti-bg {{background}}ee;
+@define-color noti-bg-opaque {{background}};
+@define-color noti-bg-darker {{color0}};
+@define-color noti-bg-hover {{color8}};
+@define-color noti-bg-hover-opaque {{color8}};
+@define-color noti-bg-focus {{color4}}bf;
+@define-color noti-close-bg {{color8}};
+@define-color noti-close-bg-hover {{color1}};
+@define-color text-color {{foreground}};
+@define-color text-color-disabled {{color8}};
+@define-color bg-selected {{color4}};
+
+.notification-row .notification-background .notification.critical {
+  border-color: {{color1}};
+}
+
+.notification-row .notification-background .notification.low {
+  border-color: {{color2}};
+}
+
+.notification-row .notification-background .notification .notification-default-action:hover,
+.notification-row .notification-background .notification .notification-action > button:hover {
+  background: {{color8}};
+}
+
+.control-center {
+  background: {{background}}ee;
+  border: 1px solid {{color4}}bf;
+}
+
+.control-center .widget-title,
+.control-center .widget-title > label {
+  color: {{foreground}};
+}
+
+.control-center .widget-title > button {
+  background: {{color2}};
+  color: {{background}};
+}
+
+.control-center .widget-title > button:hover {
+  background: {{color10}};
+}
+
+.widget-dnd > switch:checked {
+  background: {{color4}};
+}

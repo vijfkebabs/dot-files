@@ -1,0 +1,12 @@
+[templates]
+hypr = { template = 'colors.lua',               target = '~/.config/hypr/colors.lua' }
+waybar = { template = 'waybar.template.css',    target = '~/.config/waybar/wallust/colors-waybar.css' }
+rofi = { template = "colors.rasi",              target = "~/.config/rofi/colors.rasi" }
+kitty = { template = "colors-kitty.conf",       target = "~/.config/kitty/colors-kitty.conf" }
+swaync = { template = "colors-swaync.css",      target = "~/.config/swaync/style.css" }
+vscode_colors = { template = "colors.json",     target = "~/.cache/wallust/colors.json" }
+vscode_raw    = { template = "colors",          target = "~/.cache/wallust/colors" }
+pywalfox = { template = "colors-pywalfox.json", target = "~/.cache/wal/colors.json" }
+btop = { template = "btop.theme",               target = "~/.config/btop/themes/wallust.theme" }
+vencord = { template = "vencord.theme.css",     target = "~/.config/Vencord/themes/wallust.theme.css" }
+spicetify = { template = "spicetify.ini",       target = "~/.config/spicetify/Themes/wallust/color.ini" }

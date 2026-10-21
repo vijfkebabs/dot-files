@@ -1,118 +1,51 @@
 {
   "layer": "top",
   "position": "top",
-  "exclusive": true,
+  "spacing": 2,
+  "height": 28,
+  "margin-top": 3,
+  "margin-left": 4,
+  "margin-right": 4,
+  "reload_style_on_change": true,
 
-  "modules-left": [
-    "hyprland/workspaces",
-    "wlr/taskbar"
-  ],
-
-  "modules-center": [
-    "clock"
-  ],
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
 
   "modules-right": [
     "mpris",
-    "pulseaudio",
+    "wireplumber",
     "custom/cpu",
-    "custom/gpu",
     "memory",
     "battery",
     "custom/bluetooth",
     "custom/wifi",
-    "custom/power"
+    "custom/notification",
+    "custom/lock"
   ],
 
-  "reload_style_on_change": true,
-
-  "tray": {
-    "icon-size": 16,
-    "spacing": 4,
-    "show-passive-items": true,
-    "tooltip": true
-  },
-
-  "wlr/taskbar": {
-    "format": "{icon}",
-    "icon-size": 16,
-    "tooltip-format": "{title}",
-    "on-click": "activate",
-    "on-click-middle": "close",
-    "on-click-right": "minimize"
+  "custom/tab": {
+    "format": "[Z]",
+    "on-click": "rofi -show drun"
   },
 
   "hyprland/workspaces": {
-    "format": "{name}",
-    "all-outputs": false,
-    "sort-by-number": true,
-    "on-click": "activate"
-  },
-
-  "custom/bluetooth": {
-    "format": "󰂯",
-    "tooltip": true,
-    "tooltip-format": "Open Bluetooth settings",
-    "on-click": "blueman-manager"
-  },
-
-  "custom/wifi": {
-    "format": "󰖩",
-    "tooltip": true,
-    "tooltip-format": "Open Wi-Fi settings",
-    "on-click": "nm-connection-editor"
-  },
-
-  "custom/power": {
-    "format": "",
-    "tooltip": true,
-    "tooltip-format": "Power options",
-    "on-click": "qdbus6 org.kde.LogoutPrompt /LogoutPrompt promptAll"
-  },
-
-  "mpris": {
-    "format": "{status_icon} {dynamic}",
-    "format-paused": "{status_icon} {dynamic}",
-    "format-stopped": "",
-    "tooltip-format": "{player} - {artist} - {title}",
-    "dynamic-order": [
-      "title",
-      "artist"
-    ],
-    "dynamic-len": 100,
-    "title-len": 80,
-    "status-icons": {
-      "playing": "⏸",
-      "paused": "▶",
-      "stopped": "■"
+    "format": "{icon}",
+    "on-click": "activate",
+    "persistent-workspaces": {
+      "*": [1, 2, 3, 4, 5]
     },
-    "on-click": "playerctl play-pause",
-    "on-click-middle": "playerctl previous",
-    "on-click-right": "playerctl next"
-  },
-
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰝟 muted",
-    "tooltip": true,
-    "tooltip-format": "Volume: {volume}%",
     "format-icons": {
-      "headphone": "󰋋",
-      "default": [
-        "",
-        "",
-        ""
-      ]
-    },
-    "scroll-step": 5,
-    "on-click": "pavucontrol"
+      "default": "○",
+      "active": "●",
+      "urgent": "●"
+    }
   },
 
-  "battery": {
+    "battery": {
     "interval": 60,
     "states": {
-      "warning": 15,
-      "critical": 5
+      "warning": 30,
+      "critical": 15
     },
     "events": {
       "on-discharging-warning": "notify-send -u normal 'Low Battery'",
@@ -134,29 +67,30 @@
     "max-length": 25
   },
 
-  "memory": {
-    "format": "󰍛 {used:0.1f}G",
+  "mpris": {
+    "format": " {title} - {artist} ",
+    "format-paused": "󰐊 {title} - {artist} ",
+    "max-length": 30,
     "tooltip": true,
-    "tooltip-format": "RAM: Used {used:0.1f}G / Total {total:0.1f}G",
-    "interval": 4
+    "player": "spotify"
   },
 
-  "custom/cpu": {
-    "exec": "sh -c \"usage=\\$(top -bn1 | awk '/Cpu\\\\(s\\\\)/ {for (i = 1; i <= NF; i++) if (\\$i == \\\"id,\\\") {printf \\\"%d\\\", 100 - \\$(i - 1); exit}}'); temp=\\$(sensors | awk '/Package id 0:/ {sub(/^[+]/, \\\"\\\", \\$4); print \\$4; exit}'); printf '󰻠 %s%% %s' \\\"\\$usage\\\" \\\"\\$temp\\\"\"",
-    "interval": 4,
-    "format": "{}",
-    "tooltip": true,
-    "tooltip-format": "CPU usage and temperature: {}"
+  "tray": {
+    "icon-size": 16,
+    "spacing": 6
   },
 
-  "custom/gpu": {
-    "exec": "nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,noheader,nounits | awk -F', ' 'NR == 1 {printf \"󰢮 %s%% %s°C\", $1, $2}'",
-    "interval": 4,
-    "format": "{}",
-    "tooltip": true,
-    "tooltip-format": "GPU usage and temperature: {}"
+  "wireplumber": {
+    "scroll-step": 5,
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 muted",
+    "on-click": "pavucontrol",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"],
+      "headphones": "󰋋",
+      "headset": "󰋎"
+    }
   },
-
   "clock": {
     "format": "{:%a %d %b %H:%M:%S}",
     "format-alt": "{:%H:%M:%S}",
@@ -177,5 +111,47 @@
         "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
       }
     }
+  },
+
+  "custom/lock": {
+    "format": " ",
+    "on-click": "~/.local/share/quickshell-lockscreen/lock.sh",
+    "tooltip": true,
+    "tooltip-format": "Lock Screen"
+  },
+
+  "custom/notification": {
+    "format": "",
+    "on-click": "swaync-client -t",
+    "tooltip": true,
+    "tooltip-format": "Notifications"
+  },
+    "custom/bluetooth": {
+    "format": "󰂯",
+    "tooltip": true,
+    "tooltip-format": "Open Bluetooth settings",
+    "on-click": "blueman-manager"
+  },
+
+  "custom/wifi": {
+    "format": "󰖩",
+    "tooltip": true,
+    "tooltip-format": "Open Wi-Fi settings",
+    "on-click": "nm-connection-editor"
+  },
+  "memory": {
+    "format": "󰍛 {used:0.1f}G",
+    "tooltip": true,
+    "tooltip-format": "RAM: Used {used:0.1f}G / Total {total:0.1f}G",
+    "interval": 4
+  },
+
+  "custom/cpu": {
+    "exec": "sh -c \"usage=\\$(top -bn1 | awk '/Cpu\\\\(s\\\\)/ {for (i = 1; i <= NF; i++) if (\\$i == \\\"id,\\\") {printf \\\"%d\\\", 100 - \\$(i - 1); exit}}'); temp=\\$(sensors | awk '/Package id 0:/ {sub(/^[+]/, \\\"\\\", \\$4); print \\$4; exit}'); printf '󰻠 %s%% %s' \\\"\\$usage\\\" \\\"\\$temp\\\"\"",
+    "interval": 4,
+    "format": "{}",
+    "tooltip": true,
+    "tooltip-format": "CPU usage and temperature: {}"
   }
+
 }

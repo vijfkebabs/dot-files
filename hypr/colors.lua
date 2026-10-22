@@ -1,7 +1,7 @@
 return {
-  background = "10150B",
-  foreground = "F4F3D2",
-  accent     = "EDE9D8",
-  accent2    = "665953",
-  inactive   = "9B9B7E",
+  background = "19181A",
+  foreground = "F4F4EA",
+  accent     = "A59D93",
+  accent2    = "8CAD82",
+  inactive   = "A2A197",
 }

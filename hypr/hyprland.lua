@@ -186,7 +186,7 @@ hl.config({
 
 hl.config({
 	input = {
-		kb_layout = "be,us",
+		kb_layout = "gb",
 		kb_variant = "",
 		kb_model = "",
 		kb_options = "",
@@ -225,7 +225,7 @@ hl.bind(mainMod .. " + space", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("command -v swaync-client >/dev/null 2>&1 && swaync-client -t"))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("qs -c ipc call themeswitch cycle"))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("helium-browser"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("firefox"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("discord"))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("spotify"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(vscode))

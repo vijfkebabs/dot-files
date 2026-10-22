@@ -1,11 +1,11 @@
 # dot-files
  
-Personal dotfiles and configuration files for my setup: a Wayland desktop on Arch (CachyOS) with [Hyprland](https://hypr.land/) and a Windows setup with Windhawk and YASB. Almost everything on the Linux side is themed from the current wallpaper with [wallust](https://codeberg.org/explosion-mental/wallust).
+Personal dotfiles and configuration files for my setup: a Wayland desktop on Arch (CachyOS) or NixOS with [Hyprland](https://hypr.land/) and a Windows setup with Windhawk and YASB. Almost everything on the Linux side is themed from the current wallpaper with [wallust](https://codeberg.org/explosion-mental/wallust).
  
 <!-- Add screenshots here, e.g. ![Desktop](screenshots/desktop.png) -->
  
 > [!NOTE]
-> The Linux configs are only tested on Arch Linux and are built around **wallust**, **awww** and **waypaper**. They will not work properly without them.
+> The Linux configs are tested on Arch Linux and NixOS and are built around **wallust**, **awww** and **waypaper**. They will not work properly without them.
 > This does not apply to fastfetch, WezTerm, Windhawk and YASB.
  
 ## Contents
@@ -24,6 +24,7 @@ Personal dotfiles and configuration files for my setup: a Wayland desktop on Arc
 | [`windhawk/`](./windhawk) | [Windhawk](https://windhawk.net/) mod settings (taskbar, Start menu, tray, ...) | Windows |
 | [`yasb/`](./yasb) | [YASB](https://github.com/amnweb/yasb) status bar config, styles, theme and wallpapers | Windows |
 | [`wallpapers/`](./wallpapers) | Wallpaper collection used with awww / waypaper | Any |
+| [`flake.nix`](./flake.nix), [`modules/`](./modules) | Nix flake and [Home Manager](https://github.com/nix-community/home-manager) modules that link the Linux configs above | NixOS |
  
 ## Usage
  
@@ -34,7 +35,7 @@ git clone https://github.com/vijfkebabs/dot-files.git
 cd dot-files
 ```
  
-Then copy or symlink each folder to its place (back up your own configs first). Exact paths are listed per tool below.
+Then copy or symlink each folder to its place (back up your own configs first). Exact paths are listed per tool below. On NixOS, follow the [NixOS](#nixos) section instead, which does the linking for you.
  
 ## Linux desktop
  
@@ -171,6 +172,77 @@ Themes: `Ziro`, `caelestia`, `marketplace` and the wallust-driven `wallust` them
 - `Vencord/settings/settings.json`: copy to `~/.config/Vencord/settings/` while Discord is closed.
 Vesktop and Flatpak installs use different folders, so use the **Open Themes Folder** button to find yours.
  
+## NixOS
+ 
+On NixOS the Linux configs are linked by a flake using [Home Manager](https://github.com/nix-community/home-manager). Each program has its own module in `modules/`, and `flake.nix` exposes them together as `homeManagerModules.default`.
+ 
+| Module | Installs | Links |
+| --- | --- | --- |
+| `modules/hypr.nix` | none (Hyprland comes from the system config) | `~/.config/hypr` |
+| `modules/kitty.nix` | `kitty` | `~/.config/kitty` |
+| `modules/rofi.nix` | `rofi` | `~/.config/rofi` |
+| `modules/waybar.nix` | `waybar` | `~/.config/waybar` |
+| `modules/waypaper.nix` | `waypaper`, `awww` | `~/.config/waypaper` |
+| `modules/wallust.nix` | `wallust` | `~/.config/wallust` |
+ 
+The modules use `mkOutOfStoreSymlink`, so `~/.config/<name>` points straight at the cloned repo instead of a read-only copy in the Nix store. This is needed because wallust and waypaper write into those folders. Edits to the config files apply immediately, and `home-manager switch` is only needed after changing a `.nix` file.
+ 
+> [!IMPORTANT]
+> The modules expect the repo at `~/Documents/dot-files` and the user `itlab`. If yours differs, change the path in each `modules/*.nix` and the `homeConfigurations.itlab` name, `home.username` and `home.homeDirectory` in `flake.nix`.
+ 
+### 1. System config
+ 
+Add this to `/etc/nixos/configuration.nix` and run `sudo nixos-rebuild switch`:
+ 
+```nix
+{ config, pkgs, ... }:
+{
+  programs.hyprland.enable = true;
+  programs.git.enable = true;
+  programs.firefox.enable = true;
+ 
+  # Needed for `nix run` and flakes, and for VS Code
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
+ 
+  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
+ 
+  # Makes Electron/Chromium apps use Wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+}
+```
+ 
+### 2. Clone and apply
+ 
+```bash
+git clone https://github.com/vijfkebabs/dot-files.git ~/Documents/dot-files
+cd ~/Documents/dot-files
+git add -A    # flakes only see files tracked by git
+nix run home-manager/master -- switch --flake .#itlab
+```
+ 
+If Home Manager complains that an existing folder "would be clobbered", move or remove the old folder first (for example `rm -rf ~/.config/kitty` after saving anything you need), or use `-b backup` to keep a copy.
+ 
+After the first run, `programs.home-manager.enable = true` provides the command:
+ 
+```bash
+home-manager switch --flake ~/Documents/dot-files#itlab
+```
+ 
+### 3. First login
+ 
+1. Log out and choose **Hyprland** in the login manager, or run `Hyprland` from a TTY.
+2. Open `waypaper` and pick a wallpaper (or run `~/.config/hypr/scripts/wall.sh <image>`). This runs wallust and generates the color files for Hyprland, Waybar, Rofi and kitty.
+3. Reload with `hyprctl reload` if something is not themed yet.
+ 
+### NixOS notes
+ 
+- `swww` was renamed to `awww` in nixpkgs. Use `awww` and `awww-daemon` in any scripts.
+- Run `git add` on new files before switching. Untracked files do not exist as far as the flake is concerned.
+- Commit `flake.lock` so builds are reproducible.
+- Packages are installed per user by Home Manager, so don't also list the same program in `environment.systemPackages`.
+- Fastfetch, Spicetify and Vencord are not managed by the flake. Set them up with the instructions in their own sections.
+ 
 ## Cross-platform
  
 ### fastfetch
@@ -227,6 +299,5 @@ The config starts [komorebi](https://github.com/LGUG2323/komorebi) with `whkd` (
 ## Notes
  
 - These configs are tailored to my own setup and preferences. Feel free to fork and adapt them.
-- There is no guarantee they will work for everyone since they are only tested on Arch Linux, and they may break your setup.
+- There is no guarantee they will work for everyone since they are only tested on Arch Linux and NixOS, and they may break your setup.
 - Use these dotfiles at your own risk.
- 

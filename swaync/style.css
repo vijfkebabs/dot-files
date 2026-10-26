@@ -1,67 +1,67 @@
 :root {
-  --cc-bg: #202424ee; /* ~0.94 opacity */
-  --noti-border-color: #A6929Cbf; /* ~0.72 opacity */
-  --noti-bg: #202424;
+  --cc-bg: #0F0F14ee; /* ~0.94 opacity */
+  --noti-border-color: #994D84bf; /* ~0.72 opacity */
+  --noti-bg: #0F0F14;
   --noti-bg-alpha: 0.6;
-  --noti-bg-darker: #454A4A;
-  --noti-bg-hover: #AC9C8C;
-  --noti-bg-focus: #A6929Cbf;
-  --noti-close-bg: #AC9C8C;
-  --noti-close-bg-hover: #553C32;
-  --text-color: #FEEFDE;
-  --text-color-disabled: #AC9C8C;
-  --bg-selected: #A6929C;
+  --noti-bg-darker: #38383C;
+  --noti-bg-hover: #978CA3;
+  --noti-bg-focus: #994D84bf;
+  --noti-close-bg: #978CA3;
+  --noti-close-bg-hover: #040590;
+  --text-color: #E9DFF6;
+  --text-color-disabled: #978CA3;
+  --bg-selected: #994D84;
   --border-radius: 5px;
   --border: 1px solid var(--noti-border-color);
   --notification-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
-@define-color cc-bg #202424ee;
-@define-color noti-border-color #A6929Cbf;
-@define-color noti-bg #202424ee;
-@define-color noti-bg-opaque #202424;
-@define-color noti-bg-darker #454A4A;
-@define-color noti-bg-hover #AC9C8C;
-@define-color noti-bg-hover-opaque #AC9C8C;
-@define-color noti-bg-focus #A6929Cbf;
-@define-color noti-close-bg #AC9C8C;
-@define-color noti-close-bg-hover #553C32;
-@define-color text-color #FEEFDE;
-@define-color text-color-disabled #AC9C8C;
-@define-color bg-selected #A6929C;
+@define-color cc-bg #0F0F14ee;
+@define-color noti-border-color #994D84bf;
+@define-color noti-bg #0F0F14ee;
+@define-color noti-bg-opaque #0F0F14;
+@define-color noti-bg-darker #38383C;
+@define-color noti-bg-hover #978CA3;
+@define-color noti-bg-hover-opaque #978CA3;
+@define-color noti-bg-focus #994D84bf;
+@define-color noti-close-bg #978CA3;
+@define-color noti-close-bg-hover #040590;
+@define-color text-color #E9DFF6;
+@define-color text-color-disabled #978CA3;
+@define-color bg-selected #994D84;
 
 .notification-row .notification-background .notification.critical {
-  border-color: #553C32;
+  border-color: #040590;
 }
 
 .notification-row .notification-background .notification.low {
-  border-color: #52648D;
+  border-color: #51172F;
 }
 
 .notification-row .notification-background .notification .notification-default-action:hover,
 .notification-row .notification-background .notification .notification-action > button:hover {
-  background: #AC9C8C;
+  background: #978CA3;
 }
 
 .control-center {
-  background: #202424ee;
-  border: 1px solid #A6929Cbf;
+  background: #0F0F14ee;
+  border: 1px solid #994D84bf;
 }
 
 .control-center .widget-title,
 .control-center .widget-title > label {
-  color: #FEEFDE;
+  color: #E9DFF6;
 }
 
 .control-center .widget-title > button {
-  background: #52648D;
-  color: #202424;
+  background: #51172F;
+  color: #0F0F14;
 }
 
 .control-center .widget-title > button:hover {
-  background: #52648D;
+  background: #51172F;
 }
 
 .widget-dnd > switch:checked {
-  background: #A6929C;
+  background: #994D84;
 }

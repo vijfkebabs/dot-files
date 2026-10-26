@@ -1,0 +1,11 @@
+[[mgr.prepend_keymap]]
+on  = "l"
+run = "plugin smart-enter"
+
+[[mgr.prepend_keymap]]
+on   = "T"
+run  = "plugin toggle-pane max-preview"
+
+[[mgr.prepend_keymap]]
+on   = "c"
+run  = "plugin chmod"

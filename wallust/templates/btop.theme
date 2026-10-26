@@ -39,9 +39,7 @@ theme[available_end]="{{color11}}"
 theme[used_start]="{{color1}}"
 theme[used_mid]="{{color1}}"
 theme[used_end]="{{color9}}"
-
-theme[download_start]="{{color5}}"
-theme[download_mid]="{{color5}}"
+a
 theme[download_end]="{{color13}}"
 
 theme[upload_start]="{{color6}}"

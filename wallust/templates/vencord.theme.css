@@ -38,4 +38,18 @@
     --brand-experiment:     var(--wl-accent);
     --brand-500:            var(--wl-accent);
     --text-link:            var(--wl-accent);
+
+    /* Text box */
+    --channel-text-area-background: var(--wl-bg-alt);
+    --chat-background-default:      var(--wl-bg);
+
+    /* Higher surface layers (cards, popouts, profile) */
+    --background-surface-higher:    var(--wl-bg-alt);
+    --background-surface-highest:   var(--wl-bg-alt);
+
+    /* User profile panel */
+    --profile-body-background-color:     var(--wl-bg-alt);
+    --profile-gradient-overlay-color:    transparent;
+    --profile-gradient-primary-color:    var(--wl-bg-alt);
+    --profile-gradient-secondary-color:  var(--wl-bg-alt);
 }

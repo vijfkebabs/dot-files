@@ -55,6 +55,7 @@ hl.on("hyprland.start", function()
 	-- swaybg disabled: awww + waypaper handle the wallpaper now
 	-- hl.exec_cmd("swaybg -m fill -i ~/Pictures/dharmx-digital/osaka.jpg")
 	hl.exec_cmd("nm-applet --indicator")
+	hl.exec_cmd("hyprpm enable hyprtasking && hyprpm reload -f")
 	hl.exec_cmd("udiskie")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent.service")
 	hl.exec_cmd("command -v swaync >/dev/null 2>&1 && swaync")
@@ -113,7 +114,7 @@ hl.config({
 		},
 
 		blur = {
-			enabled = true,
+			enabled = false,
 			size = 3,
 			passes = 1,
 			vibrancy = 0.1696,
@@ -148,9 +149,9 @@ hl.animation({ leaf = "layersIn", enabled = true, speed = 4, bezier = "easeOutQu
 hl.animation({ leaf = "layersOut", enabled = true, speed = 1.5, bezier = "linear", style = "fade" })
 hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1.79, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39, bezier = "almostLinear" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 1.94, bezier = "almostLinear", style = "slide" })
+hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "almostLinear", style = "slide" })
+hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "almostLinear", style = "slide" })
 hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" })
 
 hl.config({
@@ -186,7 +187,7 @@ hl.config({
 
 hl.config({
 	input = {
-		kb_layout = "gb",
+		kb_layout = "be,us",
 		kb_variant = "",
 		kb_model = "",
 		kb_options = "",
@@ -225,7 +226,7 @@ hl.bind(mainMod .. " + space", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("command -v swaync-client >/dev/null 2>&1 && swaync-client -t"))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("qs -c ipc call themeswitch cycle"))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("firefox"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("helium-browser"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("discord"))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("spotify"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(vscode))

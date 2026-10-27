@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "spacing": 2,
+  "spacing": 6,
   "height": 28,
   "margin-top": 3,
   "margin-left": 4,
@@ -10,18 +10,17 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
+  "modules-right": ["group/stats", "group/controls"],
 
-  "modules-right": [
-    "mpris",
-    "wireplumber",
-    "custom/cpu",
-    "memory",
-    "battery",
-    "custom/bluetooth",
-    "custom/wifi",
-    "custom/notification",
-    "custom/lock"
-  ],
+  "group/stats": {
+    "orientation": "horizontal",
+    "modules": ["mpris", "wireplumber", "custom/cpu", "memory", "battery"]
+  },
+
+  "group/controls": {
+    "orientation": "horizontal",
+    "modules": ["custom/bluetooth", "custom/wifi", "custom/notification", "custom/lock"]
+  },
 
   "custom/tab": {
     "format": "[Z]",
@@ -114,7 +113,7 @@
   },
 
   "custom/lock": {
-    "format": " ",
+    "format": "\uf385",
     "on-click": "~/.local/share/quickshell-lockscreen/lock.sh",
     "tooltip": true,
     "tooltip-format": "Lock Screen"

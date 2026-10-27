@@ -10,10 +10,24 @@
 }
 
 window#waybar {
+    background-color: transparent;
+    border: none;
+    color: @text;
+}
+
+/* the islands */
+#workspaces,
+#clock,
+#stats,
+#controls {
     background-color: @base;
     border: 1px solid @blue;
     border-radius: 10px;
-    color: @text;
+}
+
+#stats,
+#controls {
+    padding: 0 4px;
 }
 
 #workspaces,
@@ -22,6 +36,8 @@ window#waybar {
 #backlight,
 #battery,
 #clock,
+#memory,
+#custom-cpu,
 #custom-notification,
 #custom-bluetooth,
 #custom-wifi,
@@ -30,6 +46,12 @@ window#waybar {
     padding: 2px 6px;
     margin: 1px;
     border-radius: 8px;
+}
+
+#mpris {
+    color: @subtext1;
+    min-width: 100px;
+    padding: 2px 2px;
 }
 
 #workspaces {
@@ -54,11 +76,6 @@ window#waybar {
     color: @red;
 }
 
-#mpris {
-    color: @subtext1;
-    min-width: 180px;
-}
-
 #clock {
     color: @peach;
     font-weight: bold;
@@ -72,20 +89,10 @@ window#waybar {
     color: @overlay0;
 }
 
-#battery {
-    color: @green;
-}
-
-#battery.warning:not(.charging) {
-    color: @yellow;
-}
-
-#battery.critical:not(.charging) {
-    color: @red;
-}
-
+#custom-notification,
 #custom-bluetooth,
-#custom-wifi {
+#custom-wifi,
+#custom-lock {
     color: @blue;
 }
 
@@ -95,12 +102,7 @@ window#waybar {
 
 #custom-lock {
     min-width: 16px;
-    /* relative to this stylesheet: keep the svg next to style.css */
-    background-image: url("cachyos-yellow.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 16px 16px;
-    margin-right: 3px;
+    font-size: 14px;
 }
 
 #custom-bluetooth:hover,

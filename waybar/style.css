@@ -5,37 +5,28 @@
 
 * {
     all: unset;
-    font-family: "JetBrainsMono Nerd Font";
+    font-family: "JetBrainsMono Nerd Font ";
     font-size: 10px;
 }
 
 window#waybar {
     background-color: transparent;
-    border: none;
-    color: @text;
 }
 
 /* the islands */
 #workspaces,
 #clock,
 #stats,
-#controls {
+#controls{
     background-color: @base;
     border: 1px solid @blue;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
-#stats,
-#controls {
-    padding: 0 4px;
-}
-
-#workspaces,
 #mpris,
 #wireplumber,
 #backlight,
 #battery,
-#clock,
 #memory,
 #custom-cpu,
 #custom-notification,
@@ -45,22 +36,18 @@ window#waybar {
     color: @text;
     padding: 2px 6px;
     margin: 1px;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 #mpris {
-    color: @subtext1;
+    color: @overlay0;
     min-width: 100px;
     padding: 2px 2px;
 }
 
-#workspaces {
-    margin-left: 3px;
-}
-
 #workspaces button {
     min-width: 20px;
-    min-height: 18px;
+    min-height: 10px;
     padding: 0 5px;
     margin: 0 1px;
     color: @overlay0;
@@ -77,8 +64,10 @@ window#waybar {
 }
 
 #clock {
-    color: @peach;
+    color: @overlay0;
     font-weight: bold;
+    border-radius: 8px;
+    padding: 0px 8px;
 }
 
 #wireplumber {
@@ -94,10 +83,6 @@ window#waybar {
 #custom-wifi,
 #custom-lock {
     color: @blue;
-}
-
-#memory {
-    margin-left: 10px;
 }
 
 #custom-lock {

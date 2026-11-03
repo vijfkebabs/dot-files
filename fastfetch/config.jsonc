@@ -2,65 +2,74 @@
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
         "source": "~/.config/fastfetch/logo.txt",
-        "type": "file"
+        "type": "file",
+        "color": {
+            "1": "bright_white"
+        }
     },
     "display": {
         "separator": "  ",
         "color": "white",
-        "constants": ["\u001b[39m", "\u001b[34m", "\u001b[32m", "\u001b[36m"]
+        "constants": ["\u001b[39m", "\u001b[37m", "\u001b[90m"]
     },
     "modules": [
         "break",
         {
             "type": "custom",
-            "key": "╭───────────────────────────────────╮"
+            "key": "{$2}╭───────────────────────────────────╮{$1}"
         },
         {
             "type": "os",
-            "key": "│ {$4}󰻀{$1}  distro",
-            "format": "{$4}{pretty-name>22}{$1} │"
+            "key": "{$2}│ 󰻀  distro",
+            "format": "{$2}{pretty-name>22} │{$1}"
         },
         {
             "type": "kernel",
-            "key": "│ {$2}{$1}  kernel",
-            "format": "{$2}{release>22}{$1} │"
+            "key": "{$3}│   kernel",
+            "format": "{$3}{release>22} │{$1}"
         },
         {
             "type": "command",
-            "key": "│   uptime",
+            "key": "{$2}│   uptime",
             "text": "uptime -p | cut -d ' ' -f 2-",
-            "format": "{>22} │"
+            "format": "{$2}{>22} │{$1}"
         },
         {
             "type": "shell",
-            "key": "│ {$2}{$1}  shell ",
-            "format": "{$2}{pretty-name>22}{$1} │"
+            "key": "{$3}│   shell ",
+            "format": "{$3}{pretty-name>22} │{$1}"
         },
         {
             "type": "wm",
-            "key": "│ {$2}{$1}  wm    ",
-            "format": "{$2}{pretty-name>22}{$1} │"
+            "key": "{$2}│   wm    ",
+            "format": "{$2}{pretty-name>22} │{$1}"
         },
         {
             "type": "command",
-            "key": "│   OS age ",
+            "key": "{$3}│   OS age ",
             "text": "root_birth=$(stat -c %W /); if [ \"$root_birth\" -gt 0 ]; then printf '%s days' \"$(( ($(date +%s) - root_birth) / 86400 ))\"; else printf 'unknown'; fi",
-            "format": "{>21} │"
+            "format": "{$3}{>21} │{$1}"
         },
         {
             "type": "command",
-            "key": "│ {$3}{$1}  mem   ",
+            "key": "{$2}│   mem   ",
             "text": "free -m | awk 'NR==2{printf \"%.2f GiB / %.2f GiB\",$3/1024,$2/1024}'",
-            "format": "{$3}{>22}{$1} │"
+            "format": "{$2}{>22} │{$1}"
+        },
+        {
+            "type": "disk",
+            "key": "{$3}│ 󰋊  disk  ",
+            "folders": ["/"],
+            "format": "{$3}{size-used} / {size-total} │{$1}"
         },
         {
             "type": "packages",
-            "key": "│   pkgs  ",
-            "format": "{all>22} │"
+            "key": "{$2}│   pkgs  ",
+            "format": "{$2}{all>22} │{$1}"
         },
         {
             "type": "custom",
-            "key": "╰───────────────────────────────────╯"
+            "key": "{$2}╰───────────────────────────────────╯{$1}"
         },
         "break"
     ]

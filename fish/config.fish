@@ -1,12 +1,6 @@
 if status is-interactive
     # command-line colors
-    set -g fish_color_command c1c497
-    set -g fish_color_param d7c995
-    set -g fish_color_quote 9eebb3
-    set -g fish_color_operator 2dd5b7
-    set -g fish_color_comment 53685b
-    set -g fish_color_error e5c736
-    set -g fish_color_autosuggestion 53685b
+    test -f ~/.config/fish/wallust-colors.fish && source ~/.config/fish/wallust-colors.fish
 
     # Starship custom prompt
     command -v starship &>/dev/null && starship init fish | source
@@ -16,13 +10,24 @@ if status is-interactive
     command -v zoxide &>/dev/null && zoxide init fish --cmd cd | source
 
     # Better ls
-    command -v eza &>/dev/null && alias ls='eza --icons --group-directories-first -1'
+    command -v eza &>/dev/null && alias ls='eza --links --header --git --icons --group-directories-first -1'
 
     # Better cat 
     command -v bat &>/dev/null && alias cat='bat'
 
-    # exec fish on clear
+    # Better grep 
+    command -v grep &>/dev/null && alias grep='rg'
+
+    # Better find 
+    command -v find &>/dev/null && alias find='fd'
+
+    # fastfetch on clear
     command -v clear &>/dev/null && alias clear='clear && exec fish'
+
+    # redthread
+    function rt --description 'Run redthread'
+        command $HOME/redthread/redthread $argv
+    end
 
     # yazi y shell wrapper
     function y
@@ -56,7 +61,7 @@ if status is-interactive
     abbr ll 'ls -l'
     abbr la 'ls -a'
     abbr lla 'ls -la'
-    abbr sp 'spotify_player'
+
 end
 
 # Created by `pipx` on 2026-10-21 07:21:32

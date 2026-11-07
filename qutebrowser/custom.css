@@ -1,0 +1,50 @@
+:root {
+  --base:    #212121;
+  --surface: #474747;
+  --rose:    #47362A;
+  --iris:    #939393;
+  --text:    #F3F3F3;
+  --muted:   #A1A1A1;
+}
+
+/* text selection */
+::selection {
+  background: var(--iris) !important;
+  color: var(--base) !important;
+}
+
+/* caret and form accent */
+* { caret-color: var(--rose); }
+input, textarea, select, progress, input[type="checkbox"], input[type="radio"] {
+  accent-color: var(--rose);
+}
+
+/* scrollbars: thin and themed */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface) transparent;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--iris); }
+::-webkit-scrollbar-corner { background: transparent; }
+
+/* focus ring */
+:focus-visible {
+  outline: 2px solid var(--iris) !important;
+  outline-offset: 2px;
+}
+
+/* optional: global font (uncomment to use) */
+/*
+*:not(i):not([class*="icon"]):not([class*="Icon"]):not([class*="fa-"]):not([class*="glyphicon"]):not([class*="material"]):not([data-cds="Icon"]) {
+  font-family: "JetBrainsMono Nerd Font Mono", monospace !important;
+}
+*/

@@ -1,0 +1,6 @@
+base = "#212121"
+surface = "#474747"
+rose = "#47362A"
+iris = "#939393"
+text = "#F3F3F3"
+muted = "#A1A1A1"

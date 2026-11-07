@@ -16,10 +16,10 @@ if status is-interactive
     command -v bat &>/dev/null && alias cat='bat'
 
     # Better grep 
-    command -v grep &>/dev/null && alias grep='rg'
+    command -v rg &>/dev/null && alias grep='rg'
 
     # Better find 
-    command -v find &>/dev/null && alias find='fd'
+    command -v fd &>/dev/null && alias find='fd'
 
     # fastfetch on clear
     command -v clear &>/dev/null && alias clear='clear && exec fish'
@@ -41,26 +41,12 @@ if status is-interactive
 
     # Abbrs
     abbr lg lazygit
-    abbr gd 'git diff'
-    abbr ga 'git add .'
-    abbr gc 'git commit -am'
-    abbr gl 'git log'
-    abbr gs 'git status'
-    abbr gst 'git stash'
-    abbr gsp 'git stash pop'
-    abbr gp 'git push'
-    abbr gpl 'git pull'
-    abbr gsw 'git switch'
-    abbr gsm 'git switch main'
-    abbr gb 'git branch'
-    abbr gbd 'git branch -d'
-    abbr gco 'git checkout'r
-    abbr gsh 'git show'
     abbr wb-reload 'killall -SIGUSR2 waybar'
     abbr l ls
     abbr ll 'ls -l'
     abbr la 'ls -a'
     abbr lla 'ls -la'
+    abbr arch-update 'sudo pacman -Syu && yay -Syu'
 
 end
 

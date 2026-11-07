@@ -12,4 +12,5 @@ btop = { template = "btop.theme",               target = "~/.config/btop/themes/
 vencord = { template = "vencord.theme.css",     target = "~/.config/Vencord/themes/wallust.theme.css" }
 spicetify = { template = "spicetify.ini",       target = "~/.config/spicetify/Themes/wallust/color.ini" }
 nvim = { template = "nvim.lua",                 target = "~/.config/nvim/colors/wallust.lua" }
+qutebrowser_startpage = { template = "qutebrowser-startpage.css", target = "~/.config/qutebrowser/startpage/wallust.css" }
 cachyos = { template = "cachyos.svg.template",  target = "~/.config/waybar/cachyos-yellow.svg" }

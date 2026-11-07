@@ -1,0 +1,9 @@
+:root {
+  --base: #{{background | strip}};
+  --surface: #{{color0 | strip}};
+  --rose: #{{color1 | strip}};
+  --iris: #{{color4 | strip}};
+  --text: #{{foreground | strip}};
+  --muted: #{{color8 | strip}};
+  --border: color-mix(in srgb, var(--text) 10%, transparent);
+}

@@ -17,6 +17,7 @@ Personal dotfiles and configuration files for my setup: a Wayland desktop on Arc
 | [`waybar/`](./waybar) | [Waybar](https://github.com/Alexays/Waybar) config, style and generated colors | Linux |
 | [`rofi/`](./rofi) | [Rofi](https://github.com/davatorium/rofi) launcher config and generated colors | Linux |
 | [`kitty/`](./kitty) | [kitty](https://sw.kovidgoyal.net/kitty/) terminal config and generated colors | Linux / macOS |
+| [`qutebrowser/`](./qutebrowser) | [qutebrowser](https://qutebrowser.org/) browser config, startpage, bookmarks and userscripts | Linux |
 | [`nvim/`](./nvim) | [Neovim](https://neovim.io/) config based on [LazyVim](https://www.lazyvim.org/), with a generated `wallust` colorscheme | Linux / macOS |
 | [`yazi/`](./yazi) | [Yazi](https://yazi-rs.github.io/) terminal file manager config with plugins (git, full-border, smart-enter, chmod, toggle-pane, mount) | Linux / macOS |
 | [`WezTerm/`](./WezTerm) | [WezTerm](https://wezterm.org/) terminal config | Windows / Linux / macOS |
@@ -153,7 +154,17 @@ ln -sfn "$PWD/kitty" ~/.config/kitty
 ```
  
 `kitty.conf` includes the generated `colors-kitty.conf`, so run wallust once before the first launch.
- 
+
+### qutebrowser
+
+`qutebrowser/` contains the [qutebrowser](https://qutebrowser.org/) config, custom stylesheet, startpage, bookmarks and userscripts.
+
+```bash
+ln -sfn "$PWD/qutebrowser" ~/.config/qutebrowser
+```
+
+Credit for the qutebrowser config template: [nathanWorkout](https://github.com/nathanWorkout/Qutebrowser-config).
+
 ### Neovim
 
 `nvim/` is a [LazyVim](https://www.lazyvim.org/) setup. Plugins are installed by lazy.nvim on first launch and pinned by `lazy-lock.json`. You need Neovim 0.11 or newer, plus the tools from the [dependencies](#dependencies) list.

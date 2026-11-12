@@ -31,9 +31,10 @@ Personal dotfiles and configuration files for my setup: a Wayland desktop on Arc
  
 ## Usage
  
-Clone the repo:
+install the required packages and clone the repo:
  
 ```bash
+paru -S --needed hyprland awww waypaper wallust waybar rofi swaync kitty hyprshot hyprpicker hyprpolkitagent brightnessctl playerctl wireplumber networkmanager network-manager-applet udiskie syncthing quickshell ttf-jetbrains-mono-nerd neovim yazi git base-devel tree-sitter-cli ripgrep fd lazygit fzf zoxide ffmpeg 7zip jq poppler imagemagick udisks2 fastfetch btop fish wezterm spicetify-cli python-pywalfox vesktop
 git clone https://github.com/vijfkebabs/dot-files.git
 cd dot-files
 ```

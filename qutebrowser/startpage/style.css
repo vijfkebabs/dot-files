@@ -19,7 +19,7 @@ html, body {
 .wallpaper {
   position: absolute;
   inset: 0;
-  background-image: url('current-wallpaper');
+  background-image: var(--wallpaper);
   background-size: cover;
   background-position: center top;
   background-color: var(--base);

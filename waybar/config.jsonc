@@ -51,6 +51,8 @@
       "on-discharging-critical": "notify-send -u critical 'Very Low Battery'"
     },
     "format": "{icon} {capacity}%",
+    "format-charging": "󱐋{icon} {capacity}%",
+    "format-plugged": "󱐋{icon} {capacity}%",
     "format-icons": [
       "󰁺",
       "󰁻",
@@ -71,7 +73,7 @@
     "format-paused": "󰐊 {title} - {artist} ",
     "max-length": 40,
     "tooltip": true,
-    "player": "spotify"
+    "player": "playerctld"
   },
 
   "wireplumber": {

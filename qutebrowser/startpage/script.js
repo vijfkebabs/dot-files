@@ -14,16 +14,9 @@ setInterval(tick, 1000);
 
 const engines = {
   'gh ':  'https://github.com/search?q=',
-  'od':   'https://wiki.osdev.org/',
   'aw ':  'https://wiki.archlinux.org/index.php?search=',
-  'lk':   'https://linkedin.com',
-  'gm':   'https://mail.google.com',
-  'di':   'https://discord.com/app',
-  're':   'https://www.reddit.com',
   'yt ':  'https://youtube.com/results?search_query=',
   'cd':   'https://claude.ai',
-  'ch':   'https://chatgpt.com',
-  'va':   'https://vim-adventures.com',
   'ddg ': 'https://duckduckgo.com/?kae=d&q=',
 };
 const def = 'https://duckduckgo.com/?kae=d&q=';

@@ -1,9 +1,10 @@
 :root {
-  --base: #212121;
-  --surface: #474747;
-  --rose: #47362A;
-  --iris: #939393;
-  --text: #F3F3F3;
-  --muted: #A1A1A1;
+  --base: #111019;
+  --surface: #0D0821;
+  --rose: #572BAB;
+  --iris: #7C44C5;
+  --text: #EDA3FF;
+  --muted: #9B54CE;
+  --wallpaper: url("/home/bruinhol/Documents/dot-files/wallpapers/newblackhole3purple.png");
   --border: color-mix(in srgb, var(--text) 10%, transparent);
 }

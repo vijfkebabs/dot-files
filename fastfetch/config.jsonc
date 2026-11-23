@@ -16,60 +16,60 @@
         "break",
         {
             "type": "custom",
-            "key": "{$2}╭───────────────────────────────────╮{$1}"
+            "key": "{$2}╭────────────────────────────────────────────╮{$1}"
         },
         {
             "type": "os",
             "key": "{$2}│ 󰻀  distro",
-            "format": "{$2}{pretty-name>22} │{$1}"
+            "format": "{$2} {pretty-name>30} │{$1}"
         },
         {
             "type": "kernel",
             "key": "{$3}│   kernel",
-            "format": "{$3}{release>22} │{$1}"
+            "format": "{$3} {release>30} │{$1}"
         },
         {
             "type": "command",
             "key": "{$2}│   uptime",
             "text": "uptime -p | cut -d ' ' -f 2-",
-            "format": "{$2}{>22} │{$1}"
+            "format": "{$2} {>30} │{$1}"
         },
         {
             "type": "shell",
             "key": "{$3}│   shell ",
-            "format": "{$3}{pretty-name>22} │{$1}"
+            "format": "{$3} {pretty-name>30} │{$1}"
         },
         {
             "type": "wm",
             "key": "{$2}│   wm    ",
-            "format": "{$2}{pretty-name>22} │{$1}"
+            "format": "{$2} {pretty-name>30} │{$1}"
         },
         {
             "type": "command",
             "key": "{$3}│   OS age ",
             "text": "root_birth=$(stat -c %W /); if [ \"$root_birth\" -gt 0 ]; then printf '%s days' \"$(( ($(date +%s) - root_birth) / 86400 ))\"; else printf 'unknown'; fi",
-            "format": "{$3}{>21} │{$1}"
+            "format": "{$3} {>29} │{$1}"
         },
         {
             "type": "command",
             "key": "{$2}│   mem   ",
             "text": "free -m | awk 'NR==2{printf \"%.2f GiB / %.2f GiB\",$3/1024,$2/1024}'",
-            "format": "{$2}{>22} │{$1}"
+            "format": "{$2} {>30} │{$1}"
         },
         {
             "type": "disk",
             "key": "{$3}│ 󰋊  disk  ",
             "folders": ["/"],
-            "format": "{$3}{size-used} / {size-total} │{$1}"
+            "format": "{$3}{size-used>12} / {size-total} ({size-percentage>3}) │{$1}"
         },
         {
             "type": "packages",
             "key": "{$2}│   pkgs  ",
-            "format": "{$2}{all>22} │{$1}"
+            "format": "{$2} {all>30} │{$1}"
         },
         {
             "type": "custom",
-            "key": "{$2}╰───────────────────────────────────╯{$1}"
+            "key": "{$2}╰────────────────────────────────────────────╯{$1}"
         },
         "break"
     ]

@@ -1,4 +1,12 @@
 # dot-files
+
+<div align="center">
+
+![Commits](https://img.shields.io/github/commit-activity/t/vijfkebabs/dot-files?style=for-the-badge&labelColor=101418&color=1793D1)
+![GitHub last commit](https://img.shields.io/github/last-commit/vijfkebabs/dot-files?style=for-the-badge&labelColor=101418&color=1793D1)
+![GitHub repo size](https://img.shields.io/github/repo-size/vijfkebabs/dot-files?style=for-the-badge&labelColor=101418&color=1793D1)
+
+</div>
  
 Personal dotfiles and configuration files for my setup: a Wayland desktop on Arch (CachyOS) or NixOS with [Hyprland](https://hypr.land/) and a Windows setup with Windhawk and YASB. Almost everything on the Linux side is themed from the current wallpaper with [wallust](https://codeberg.org/explosion-mental/wallust).
  

@@ -1,27 +1,20 @@
-local vars = require("variables")
-
 hl.config({
-    decoration = {
-        rounding = vars.windowRounding,
-        rounding_power = vars.windowRoundingPower,
-
-        blur = {
-            enabled           = vars.blurEnabled,
-            xray              = vars.blurXray,
-            special           = vars.blurSpecialWs,
-            ignore_opacity    = true, -- Allows opacity blurring
-            new_optimizations = true,
-            popups            = vars.blurPopups,
-            input_methods     = vars.blurInputMethods,
-            size              = vars.blurSize,
-            passes            = vars.blurPasses,
-        },
-
-        shadow = {
-            enabled      = vars.shadowEnabled,
-            range        = vars.shadowRange,
-            render_power = vars.shadowRenderPower,
-            color        = vars.shadowColour,
-        },
-    },
+	decoration = {
+		rounding = 10,
+		rounding_power = 2,
+		active_opacity = 1.0,
+		inactive_opacity = 0.8,
+		shadow = {
+			enabled = true,
+			range = 4,
+			render_power = 3,
+			color = 0xee1a1a1a,
+		},
+		blur = {
+			enabled = false,
+			size = 3,
+			passes = 1,
+			vibrancy = 0.1696,
+		},
+	},
 })

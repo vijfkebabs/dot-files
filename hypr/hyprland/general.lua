@@ -1,34 +1,35 @@
-local vars = require("variables")
+local ok, c = pcall(dofile, os.getenv("HOME") .. "/.config/hypr/colors.lua")
+if not ok then
+	c = { accent = "71cead", inactive = "53685b" }
+end
 
 hl.config({
-    general = {
-        layout          = "dwindle",
+	cursor = {
+		no_hardware_cursors = 1,
+	},
 
-        allow_tearing   = false, -- Allows `immediate` window rule to work
+	general = {
+		gaps_in = 2,
+		gaps_out = 2,
+		border_size = 1,
+		col = {
+			active_border = "rgba(" .. c.accent .. "ff)",
+			inactive_border = "rgba(" .. c.inactive .. "aa)",
+		},
+		resize_on_border = false,
+		allow_tearing = false,
+		layout = "master",
+	},
 
-        gaps_workspaces = vars.workspaceGaps,
-        gaps_in         = vars.windowGapsIn,
-        gaps_out        = vars.windowGapsOut,
-        border_size     = vars.windowBorderSize,
+	dwindle = {
+		preserve_split = true,
+	},
 
-        col             = {
-            active_border   = vars.activeWindowBorderColour,
-            inactive_border = vars.inactiveWindowBorderColour,
-        },
-    },
+	master = {
+		new_status = "master",
+	},
 
-    dwindle = {
-        preserve_split = true,
-        smart_split    = false,
-        smart_resizing = true,
-    },
-
-    scrolling = {
-        fullscreen_on_one_column = true,
-        focus_fit_method         = 1,
-        column_width             = 0.5,
-        follow_focus             = true,
-        follow_min_visible       = 0.0,
-        explicit_column_widths   = "0.35, 0.5, 0.65, 1.0",
-    },
+	scrolling = {
+		fullscreen_on_one_column = true,
+	},
 })

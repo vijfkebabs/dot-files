@@ -37,6 +37,231 @@ Personal dotfiles and configuration files for my setup: a Wayland desktop on Arc
 | [`wallpapers/`](./wallpapers) | Wallpaper collection used with awww / waypaper | Any |
 | [`flake.nix`](./flake.nix), [`modules/`](./modules) | Nix flake and [Home Manager](https://github.com/nix-community/home-manager) modules that link the Linux configs above | NixOS |
  
+## Project tree
+
+```text
+.
+|-- .vscode/
+|   `-- settings.json
+|-- btop/
+|   |-- btop.conf
+|   `-- themes/
+|       |-- osaka-jade.theme
+|       `-- wallust.theme
+|-- fastfetch/
+|   |-- config.jsonc
+|   `-- logo.txt
+|-- fish/
+|   |-- config.fish
+|   |-- fish_variables
+|   |-- functions/
+|   |   |-- fish_greeting.fish
+|   |   `-- fix_konsole_colors.fish
+|   `-- wallust-colors.fish
+|-- flake.lock
+|-- flake.nix
+|-- hypr/
+|   |-- colors.lua
+|   |-- hyprland/
+|   |   |-- animations.lua
+|   |   |-- decoration.lua
+|   |   |-- env.lua
+|   |   |-- execs.lua
+|   |   |-- general.lua
+|   |   |-- gestures.lua
+|   |   |-- group.lua
+|   |   |-- input.lua
+|   |   |-- keybinds.lua
+|   |   |-- misc.lua
+|   |   `-- rules.lua
+|   |-- hyprland.lua
+|   |-- scheme/
+|   |   |-- current.lua
+|   |   `-- default.lua
+|   |-- scripts/
+|   |   `-- wall.sh
+|   |-- utils/
+|   |   |-- functions.lua
+|   |   `-- json.lua
+|   `-- variables.lua
+|-- kitty/
+|   |-- colors-kitty.conf
+|   `-- kitty.conf
+|-- modules/
+|   |-- apps.nix
+|   |-- dotfiles.nix
+|   |-- hypr.nix
+|   |-- kitty.nix
+|   |-- rofi.nix
+|   |-- wallust.nix
+|   |-- waybar.nix
+|   `-- waypaper.nix
+|-- nvim/
+|   |-- .gitignore
+|   |-- .neoconf.json
+|   |-- colors/
+|   |   `-- wallust.lua
+|   |-- init.lua
+|   |-- lazy-lock.json
+|   |-- lazyvim.json
+|   |-- LICENSE
+|   |-- lua/
+|   |   |-- config/
+|   |   |   |-- autocmds.lua
+|   |   |   |-- keymaps.lua
+|   |   |   |-- lazy.lua
+|   |   |   `-- options.lua
+|   |   `-- plugins/
+|   |       |-- colorscheme.lua
+|   |       `-- example.lua
+|   |-- README.md
+|   `-- stylua.toml
+|-- qutebrowser/
+|   |-- autoconfig.yml
+|   |-- bookmarks/
+|   |   `-- urls
+|   |-- config.py
+|   |-- custom.css
+|   |-- qsettings/
+|   |   `-- QtProject.conf
+|   |-- quickmarks
+|   |-- startpage/
+|   |   |-- anime-nord.png
+|   |   |-- current-wallpaper
+|   |   |-- index.html
+|   |   |-- script.js
+|   |   |-- style.css
+|   |   `-- wallust.css
+|   `-- wallust.py
+|-- README.md
+|-- rofi/
+|   |-- colors.rasi
+|   `-- config.rasi
+|-- spicetify/
+|   |-- config-xpui.ini
+|   |-- CustomApps/
+|   |   `-- marketplace/
+|   |       |-- extension.js
+|   |       |-- index.js
+|   |       |-- manifest.json
+|   |       |-- README.md
+|   |       `-- style.css
+|   `-- Themes/
+|       |-- caelestia/
+|       |   |-- color.ini
+|       |   `-- user.css
+|       |-- marketplace/
+|       |   `-- color.ini
+|       |-- wallust/
+|       |   |-- color.ini
+|       |   `-- user.css
+|       `-- Ziro/
+|           |-- color.ini
+|           `-- user.css
+|-- swaync/
+|   `-- style.css
+|-- Vencord/
+|   |-- settings/
+|   |   |-- quickCss.css
+|   |   `-- settings.json
+|   `-- themes/
+|       `-- wallust.theme.css
+|-- wallpapers/  
+|-- wallust/
+|   |-- templates/
+|   |   |-- btop.theme
+|   |   |-- cachyos.svg.template
+|   |   |-- colors
+|   |   |-- colors-kitty.conf
+|   |   |-- colors-pywalfox.json
+|   |   |-- colors-swaync.css
+|   |   |-- colors.json
+|   |   |-- colors.lua
+|   |   |-- colors.rasi
+|   |   |-- fish-colors.fish
+|   |   |-- nvim.lua
+|   |   |-- qutebrowser-startpage.css
+|   |   |-- spicetify.ini
+|   |   |-- vencord.theme.css
+|   |   `-- waybar.template.css
+|   `-- wallust.toml
+|-- waybar/
+|   |-- cachyos-yellow.svg
+|   |-- config.jsonc
+|   |-- style.css
+|   `-- wallust/
+|       `-- colors-waybar.css
+|-- waypaper/
+|   `-- config.ini
+|-- WezTerm/
+|   `-- wezterm.lua
+|-- windhawk/
+|   |-- Win11_clock_taskbar_customizer.json
+|   |-- Win11_fluent_taskbar_mediaplayer.json
+|   |-- Win11_notification_center_styler.json
+|   |-- Win11_settings_styler.json
+|   |-- Win11_Start_Menu_Styler.json
+|   |-- Win11_system_tray_tweaks.json
+|   `-- Win11_taskbar_styler.json
+|-- yasb/
+|   |-- config.yaml
+|   |-- styles.css
+|   |-- theme.json
+|   `-- Wallpapers/
+|       |-- bsod.png
+|       |-- cat-bg-black2-fg-flamingo.png
+|       |-- cat-bg-black2-fg-lavender.png
+|       |-- cat-bg-black2-fg-maroon.png
+|       |-- cat-bg-black2-fg-peach.png
+|       |-- cat-bg-black2-fg-pink.png
+|       |-- cat-bg-black2-fg-white.png
+|       |-- cat-bg-black3-fg-lavender.png
+|       |-- cat-bg-black3-fg-rosewater.png
+|       |-- TN1.png
+|       |-- TN10.png
+|       |-- TN2.png
+|       |-- TN3.png
+|       |-- TN4.png
+|       |-- TN5.png
+|       |-- TN6.jpg
+|       |-- TN7.png
+|       |-- TN8.png
+|       `-- TN9.png
+`-- yazi/
+    |-- init.lua
+    |-- keymap.toml
+    |-- package.toml
+    |-- plugins/
+    |   |-- chmod.yazi/
+    |   |   |-- LICENSE
+    |   |   |-- main.lua
+    |   |   `-- README.md
+    |   |-- full-border.yazi/
+    |   |   |-- LICENSE
+    |   |   |-- main.lua
+    |   |   `-- README.md
+    |   |-- git.yazi/
+    |   |   |-- LICENSE
+    |   |   |-- main.lua
+    |   |   |-- README.md
+    |   |   `-- types.lua
+    |   |-- mount.yazi/
+    |   |   |-- cross.lua
+    |   |   |-- LICENSE
+    |   |   |-- main.lua
+    |   |   |-- README.md
+    |   |   `-- sudo.lua
+    |   |-- smart-enter.yazi/
+    |   |   |-- LICENSE
+    |   |   |-- main.lua
+    |   |   `-- README.md
+    |   `-- toggle-pane.yazi/
+    |       |-- LICENSE
+    |       |-- main.lua
+    |       `-- README.md
+    `-- yazi.toml
+```
+
 ## Usage
  
 install the required packages and clone the repo:
@@ -283,12 +508,14 @@ On NixOS the Linux configs are linked by a flake using [Home Manager](https://gi
  
 | Module | Installs | Links |
 | --- | --- | --- |
-| `modules/hypr.nix` | none (Hyprland comes from the system config) | `~/.config/hypr` |
-| `modules/kitty.nix` | `kitty` | `~/.config/kitty` |
-| `modules/rofi.nix` | `rofi` | `~/.config/rofi` |
-| `modules/waybar.nix` | `waybar` | `~/.config/waybar` |
-| `modules/waypaper.nix` | `waypaper`, `awww` | `~/.config/waypaper` |
-| `modules/wallust.nix` | `wallust` | `~/.config/wallust` |
+| `modules/dotfiles.nix` | The desktop, terminal, theme and cross-platform tools | Maps the repository directories into `~/.config`, with wallpapers in `~/Pictures/wallpapers` and VS Code settings in `~/.config/Code/User/settings.json` |
+| `modules/hypr.nix` | `hyprland` | Package module only; `dotfiles.nix` links `~/.config/hypr` |
+| `modules/kitty.nix` | `kitty` | Package module only; `dotfiles.nix` links `~/.config/kitty` |
+| `modules/rofi.nix` | `rofi` | Package module only; `dotfiles.nix` links `~/.config/rofi` |
+| `modules/waybar.nix` | `waybar` | Package module only; `dotfiles.nix` links `~/.config/waybar` |
+| `modules/waypaper.nix` | `waypaper`, `awww` | Package module only; `dotfiles.nix` links `~/.config/waypaper` |
+| `modules/wallust.nix` | `wallust` | Package module only; `dotfiles.nix` links `~/.config/wallust` |
+| `modules/apps.nix` | btop, fastfetch, SwayNC, VS Code, Discord/Vencord, Spotify, Spicetify and Pywalfox | App packages and shell initialization |
  
 The modules use `mkOutOfStoreSymlink`, so `~/.config/<name>` points straight at the cloned repo instead of a read-only copy in the Nix store. This is needed because wallust and waypaper write into those folders. Edits to the config files apply immediately, and `home-manager switch` is only needed after changing a `.nix` file.
  
@@ -346,8 +573,6 @@ home-manager switch --flake ~/Documents/dot-files#itlab
 - Run `git add` on new files before switching. Untracked files do not exist as far as the flake is concerned.
 - Commit `flake.lock` so builds are reproducible.
 - Packages are installed per user by Home Manager, so don't also list the same program in `environment.systemPackages`.
-- Neovim and Yazi are not managed by the flake yet. Install `neovim` and `yazi` with Home Manager or `environment.systemPackages` and symlink `nvim/` and `yazi/` as shown in their sections.
-- Fastfetch, Spicetify and Vencord are not managed by the flake. Set them up with the instructions in their own sections.
  
 ## Cross-platform
  

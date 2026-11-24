@@ -19,6 +19,7 @@
       };
     in {
       homeManagerModules = {
+        dotfiles = import ./modules/dotfiles.nix;
         hypr = import ./modules/hypr.nix;
         kitty = import ./modules/kitty.nix;
         rofi = import ./modules/rofi.nix;
@@ -28,6 +29,7 @@
         apps = import ./modules/apps.nix;
         default = {
           imports = [
+            self.homeManagerModules.dotfiles
             self.homeManagerModules.hypr
             self.homeManagerModules.kitty
             self.homeManagerModules.rofi

@@ -6,5 +6,6 @@
 
 config_version: 2
 settings:
-  content.javascript.clipboard:
-    https://claude.ai: access-paste
+  content.register_protocol_handler:
+    https://mail.google.com?extsrc=mailto&url=%25s: true
+    https://outlook.cloud.microsoft?mailtouri=%25s: true
